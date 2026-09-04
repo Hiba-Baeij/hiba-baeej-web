@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { siteConfig } from "@/constants/portfolio";
+import { getBaseUrl } from "./getBaseUrl";
 
 export const generateMetadata = ({
     title = `${siteConfig.name} — ${siteConfig.role}`,
@@ -24,15 +25,17 @@ export const generateMetadata = ({
     image?: string | null;
     icons?: Metadata["icons"];
     noIndex?: boolean;
-} = {}): Metadata => ({
+} = {}): Metadata => {
+    const baseUrl = getBaseUrl();
+    return {
     title,
     description,
     icons,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(baseUrl),
     openGraph: {
         title,
         description,
-        url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
+        url: baseUrl,
         siteName: siteConfig.name,
         images: image ? [image] : [],
     },
@@ -43,4 +46,5 @@ export const generateMetadata = ({
         images: image ? [image] : [],
     },
     ...(noIndex && { robots: { index: false, follow: false } }),
-});
+    };
+};

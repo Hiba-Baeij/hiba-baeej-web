@@ -1,9 +1,9 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/constants/portfolio";
-
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+import { getBaseUrl } from "@/utils/getBaseUrl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = getBaseUrl();
   const workRoutes = projects.map((p) => ({
     url: `${baseUrl}/work/${p.slug}`,
     lastModified: new Date(),
