@@ -1,35 +1,37 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { ArrowRight, Download, Github, Mail } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { siteConfig } from "@/constants/portfolio";
-import { FadeIn, Float, SplitWords, TypedLines } from "./motion";
+import { FadeIn, SplitWords, TypedLines } from "./motion";
 
 const S = ({ c, children }: { c: string; children: React.ReactNode }) => <span className={c}>{children}</span>;
 const str = "text-[#C3E88D]";
 
+const kw = "text-[#C792EA]";
+const fn = "text-[#82AAFF]";
+const lit = "text-[#F78C6C]";
+const q = (s: string) => <S c={str}>&quot;{s}&quot;</S>;
+
 const codeLines = [
   <>
-    <S c="text-[#C792EA]">export const</S> <S c="text-[#82AAFF]">engineer</S> = {"{"}
+    <S c={kw}>export default</S> <S c={fn}>defineResource</S>({"{"}
   </>,
   <>
-    {"  "}name: <S c={str}>&quot;{siteConfig.name}&quot;</S>,
+    {"  "}endpoint: {q("/sales/invoices")},
   </>,
   <>
-    {"  "}role: <S c={str}>&quot;{siteConfig.role}&quot;</S>,
+    {"  "}views: [{q("table")}, {q("card")}, {q("kanban")}],
   </>,
   <>
-    {"  "}experience: <S c="text-[#F78C6C]">5</S>, <S c="text-[#6B7280]">{"// years"}</S>
+    {"  "}filters: [{q("customer")}, {q("status")}, {q("date")}],
   </>,
   <>
-    {"  "}builds: [<S c={str}>&quot;SaaS&quot;</S>, <S c={str}>&quot;ERP&quot;</S>, <S c={str}>&quot;AI apps&quot;</S>],
+    {"  "}permission: {q("invoices.*")},
   </>,
   <>
-    {"  "}stack: [<S c={str}>&quot;React&quot;</S>, <S c={str}>&quot;Vue 3&quot;</S>, <S c={str}>&quot;NestJS&quot;</S>, <S c={str}>&quot;Laravel&quot;</S>],
+    {"  "}zatca: <S c={lit}>true</S>,
   </>,
-  <>
-    {"  "}remote: <S c="text-[#F78C6C]">true</S>,
-  </>,
-  <>{"};"}</>,
+  <>{"});"}</>,
 ];
 
 const Hero = () => {
@@ -96,28 +98,15 @@ const Hero = () => {
               <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]/80" />
-              <span className="ml-2 font-mono text-xs text-fg-subtle">hiba.config.ts</span>
+              <span className="ml-2 font-mono text-xs text-fg-subtle">invoices.resource.ts</span>
             </div>
-            <div className="overflow-x-auto px-5 pb-12 pt-6">
+            <div className="overflow-x-auto px-5 pb-8 pt-6">
               <TypedLines lines={codeLines.map((line, i) => <Fragment key={i}>{line}</Fragment>)} delay={0.8} className="font-mono text-[13px] leading-[1.9] text-[#C9CFDA] sm:text-sm" />
             </div>
           </div>
-          <Float delay={2.2} className="absolute -bottom-8 -left-3 sm:-left-8">
-            <div className="flex flex-col rounded-2xl border border-white/10 bg-[#111420]/95 px-5 py-4 shadow-xl backdrop-blur">
-              <span className="font-heading text-2xl font-bold text-white">100K+</span>
-              <span className="text-xs text-fg-muted">requests / year · Safeer Digital</span>
-            </div>
-          </Float>
-          <Float delay={2.6} className="absolute -right-2 -top-6 hidden sm:block">
-            <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#111420]/95 px-4 py-3 shadow-xl backdrop-blur">
-              <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-fg-muted hover:text-white">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href={siteConfig.email} aria-label="Email" className="text-fg-muted hover:text-white">
-                <Mail className="h-5 w-5" />
-              </a>
-            </div>
-          </Float>
+          <p className="mt-4 text-center text-[13px] text-fg-subtle">
+            How a full CRUD screen is defined in ASAPI ERP (simplified)
+          </p>
         </FadeIn>
       </div>
     </section>
