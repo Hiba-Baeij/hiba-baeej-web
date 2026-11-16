@@ -10,8 +10,8 @@ export const Expertise = () => {
   return (
     <section id="expertise" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
       <SectionHeading
-        eyebrow="Engineering Expertise"
-        title="Technical depth without the list dump"
+        eyebrow="Stack"
+        title="Tools I use"
         description="The tools I use every day, grouped by where they sit in the product."
       />
       <Stagger className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-6" stagger={0.1}>

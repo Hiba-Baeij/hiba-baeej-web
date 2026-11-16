@@ -75,10 +75,10 @@ export const languages = [
 ];
 
 export const aboutText = [
-  "I'm a Full-Stack Engineer with 5+ years of experience designing, developing and modernizing SaaS platforms, ERP systems and business-critical web applications.",
-  "My specialty is scalable frontend architecture — reusable component systems and complex, data-driven interfaces — backed by hands-on work on APIs, backend services and workflow automation.",
-  "I have a track record of modernizing legacy codebases and setting development patterns that make teams faster and products more consistent across business domains.",
-  "I use AI-assisted, agentic engineering workflows to move faster and raise code quality — delivering modular, reliable software that keeps evolving with the business.",
+  "I started in 2021 at ELKOOD in Aleppo, building CRM, e-commerce and education platforms with Vue and Nuxt. Since then I've worked mostly on business software: ERP systems, an embassy services platform, a store management app and dashboards full of data and rules.",
+  "The part I enjoy most is the structure under the screens. At Nirrov I built generic CRUD and data-view systems, so adding a new module with tables, filters and permissions means configuring it, not writing it again from scratch.",
+  "At Mind Torches I moved JetOrder from Nuxt 2 to Vue 3 and brought TypeScript into the codebase. That refactor cut code complexity by about 30%.",
+  "Lately I've been building with AI as well: a RAG app that answers from company documents in Arabic and English, and an MCP server that lets AI agents work with an online store. I use coding agents every day, and tests and code review decide what gets merged.",
 ];
 
 export const aboutFacts = [

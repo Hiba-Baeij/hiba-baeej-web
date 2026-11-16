@@ -1,5 +1,5 @@
 import { Bot, FileSearch, Workflow } from "lucide-react";
-import { aiCapabilities, aiHighlights, aiWorkflowSteps } from "@/constants/portfolio";
+import { aiHighlights, aiWorkflowSteps } from "@/constants/portfolio";
 import SectionHeading from "./section-heading";
 import { SpotlightCard, Stagger, StaggerItem } from "./motion";
 
@@ -11,9 +11,9 @@ export const AiSection = () => {
       <div className="relative overflow-hidden rounded-[28px] border border-brand/25 bg-[#0B0E17] p-6 md:p-12">
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand/15 blur-[100px]" aria-hidden="true" />
         <SectionHeading
-          eyebrow="AI & Agentic Engineering"
-          title="Building with AI, not just using AI."
-          description="I ship AI features customers can trust — RAG with cited answers, MCP servers for agent access — and use agentic workflows to deliver faster without losing control of architecture, security or quality."
+          eyebrow="AI"
+          title="What I build with AI, and how I use it"
+          description="I build AI features like RAG and MCP servers, and I use coding agents in my daily work. These are the steps I follow so the agents don't make the decisions."
         />
 
         <div className="relative mt-10">
@@ -46,14 +46,6 @@ export const AiSection = () => {
               </SpotlightCard>
             );
           })}
-        </Stagger>
-
-        <Stagger className="relative mt-8 flex flex-wrap gap-2" stagger={0.04}>
-          {aiCapabilities.map((c) => (
-            <StaggerItem key={c} as="span" pop className="chip">
-              {c}
-            </StaggerItem>
-          ))}
         </Stagger>
       </div>
     </section>

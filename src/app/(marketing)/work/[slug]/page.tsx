@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { projects, getProjectBySlug } from "@/constants/portfolio";
 import { ProjectShot } from "@/components/portfolio/project-shot";
 import Gallery from "@/components/portfolio/gallery";
@@ -60,6 +60,16 @@ const ProjectPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
         <p className="eyebrow">{project.category}</p>
         <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight text-white md:text-6xl">{project.title}</h1>
         <p className="mt-5 text-lg leading-relaxed text-fg-muted">{project.description}</p>
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/14 px-5 py-3 font-medium text-white transition-colors hover:border-white/30 hover:bg-white/[0.03]"
+          >
+            Visit live site <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+        )}
       </Reveal>
 
       <Reveal delay={0.1} className="mt-10 grid grid-cols-3 gap-3">

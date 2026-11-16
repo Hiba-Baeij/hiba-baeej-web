@@ -7,7 +7,7 @@ import { ScrollRail, Stagger, StaggerItem } from "./motion";
 export const Experience = () => {
   return (
     <section id="experience" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
-      <SectionHeading eyebrow="Experience" title="Five years across enterprise teams" />
+      <SectionHeading eyebrow="Experience" title="Where I've worked" />
       <ScrollRail className="mt-12">
         <ol className="flex flex-col">
           {experienceRoles.map((r) => (

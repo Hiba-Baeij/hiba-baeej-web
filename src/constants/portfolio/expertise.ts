@@ -9,26 +9,26 @@ export const whatIBuild: CapabilityCard[] = [
   {
     title: "Enterprise & ERP Platforms",
     description:
-      "Multi-tenant ERP and operations systems with accounting, invoicing, inventory, HR, RBAC and real-time reporting — including ZATCA e-invoicing for Saudi businesses.",
+      "Accounting, invoicing, inventory, HR and reports for many companies on one system, each with its own data and roles. Includes ZATCA e-invoicing for Saudi businesses.",
     keywords: ["ERP", "Accounting", "ZATCA", "RBAC", "Multi-tenant"],
     emphasis: true,
   },
   {
     title: "SaaS Products",
     description:
-      "Subscription products with tenant isolation, plan limits, payments, multi-currency and admin portals — built to launch fast and scale cleanly.",
+      "Subscription products where each customer gets its own subdomain, with plan limits, payments in more than one currency and an admin portal to run it all.",
     keywords: ["SaaS", "Subdomains", "Payments", "Admin Portals"],
   },
   {
     title: "AI-Powered Applications",
     description:
-      "RAG assistants with cited answers, MCP servers that let AI agents act safely on your product, and LLM features that don't hallucinate.",
+      "Assistants that answer from your own documents and show where each answer came from, and MCP servers that give AI agents scoped access to your product.",
     keywords: ["RAG", "MCP", "LLMs", "AI Agents"],
   },
   {
     title: "Full-Stack Web Apps",
     description:
-      "End-to-end delivery: typed React/Vue frontends, NestJS or Laravel APIs, PostgreSQL, real-time features, CI/CD and deployment.",
+      "React or Vue on the front, NestJS or Laravel behind it, PostgreSQL for the data, plus real-time updates, CI/CD and deployment.",
     keywords: ["Next.js", "NestJS", "Laravel", "PostgreSQL", "WebSockets"],
     emphasis: true,
   },
@@ -62,17 +62,6 @@ export const expertiseGroups: ExpertiseGroup[] = [
   },
 ];
 
-export const aiCapabilities = [
-  "Agentic Engineering (TDD / SDD)",
-  "Multi-Agent Architectures",
-  "MCP Servers & Integration",
-  "RAG Pipelines",
-  "Hybrid Vector + Full-text Search",
-  "Provider-agnostic LLM Layers",
-  "Grounded, Cited Answers",
-  "AI-assisted Refactoring & Review",
-];
-
 export const aiWorkflowSteps = [
   { title: "Spec", description: "Requirements become a written spec (SDD)" },
   { title: "Tests first", description: "Behaviour pinned down with tests (TDD)" },
@@ -84,47 +73,47 @@ export const aiWorkflowSteps = [
 export const aiHighlights = [
   {
     title: "SmartDocs AI",
-    description: "RAG over company documents in Arabic & English — every answer cites its source, or it says it doesn't know.",
+    description: "Answers questions from company documents in Arabic and English. Every answer cites its source, and if the answer isn't in the documents, it says so.",
   },
   {
     title: "e-Dukan MCP Server",
-    description: "Generated from OpenAPI, secured by OAuth 2.1 and scoped hashed keys, so AI agents can run a store safely.",
+    description: "Generated from the store's OpenAPI spec and secured with OAuth 2.1 and scoped, hashed keys, so an AI agent can manage a store without full access.",
   },
   {
     title: "AI in the team workflow",
-    description: "Introduced AI-assisted workflows at Nirrov that cut time spent on repetitive engineering tasks.",
+    description: "At Nirrov I set up AI-assisted workflows for repetitive work like refactoring, debugging and code review.",
   },
 ];
 
 export const howIWorkSteps = [
   {
-    title: "Understand the Problem",
+    title: "Understand the problem",
     description:
-      "Start from the business: users, workflows, constraints and what success looks like — before writing a single component.",
+      "Who uses the system, what they do all day and what's broken now. I write it down first so we agree on the scope.",
   },
   {
-    title: "Design the Architecture",
+    title: "Plan the structure",
     description:
-      "Split the system into clear modules — UI, state, typed API layer, business logic and data — so it can grow without rewrites.",
+      "Split the work into modules (UI, state, API layer, business rules) so new features don't mean rewriting old ones.",
   },
   {
-    title: "Build Reusable Systems",
+    title: "Build the shared pieces first",
     description:
-      "Generic CRUD views, shared component libraries and typed service templates instead of solving the same problem twice.",
+      "Tables, forms, CRUD views and API services are built once and reused, not copied into every screen.",
   },
   {
-    title: "Integrate & Validate",
+    title: "Connect and test",
     description:
-      "Wire APIs with caching, loading/error states, permissions and validation. Cover the edge cases with tests.",
+      "Wire up the APIs with caching, loading and error states, permissions and validation, then write tests for the cases that usually break.",
   },
   {
-    title: "Optimize",
+    title: "Make it fast",
     description:
-      "Virtualized tables, smart data fetching, rendering strategy and bundle size. Performance is part of the feature.",
+      "Virtualized tables for large data, fetching only what each screen needs and keeping the bundle small.",
   },
   {
-    title: "Automate",
+    title: "Automate the boring parts",
     description:
-      "AI agents and CI/CD remove repetitive work, while architecture and quality stay under engineering control.",
+      "CI/CD and coding agents take the repetitive work. Architecture decisions and code review stay with me.",
   },
 ];

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects, selectedProducts } from "@/constants/portfolio";
 import { ProjectVisual } from "@/components/portfolio/visuals";
 import { ProjectShot } from "@/components/portfolio/project-shot";
@@ -9,7 +9,7 @@ import { generateMetadata } from "@/utils";
 export const metadata = generateMetadata({
   title: "Work — Hiba Baeij",
   description:
-    "Case studies by Hiba Baeij: ASAPI ERP, Safeer Digital, SmartDocs AI, e-Dukan and JetOrder — SaaS, ERP and AI platforms built with React, Vue 3, NestJS and Laravel.",
+    "Case studies by Hiba Baeij: ASAPI ERP, Safeer Digital, SmartDocs AI, e-Dukan and JetOrder. ERP, SaaS and AI projects built with React, Vue 3, NestJS and Laravel.",
 });
 
 const WorkPage = () => {
@@ -19,7 +19,7 @@ const WorkPage = () => {
         <p className="eyebrow">Work</p>
         <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight text-white md:text-6xl">Selected case studies</h1>
         <p className="section-desc">
-          Enterprise ERP, operations platforms, AI and SaaS products — each with the problem, the architecture and the outcome.
+          ERP, operations, AI and SaaS projects. Each page covers the problem, the architecture and the outcome.
         </p>
       </Reveal>
 
@@ -63,6 +63,16 @@ const WorkPage = () => {
               <h3 className="font-heading text-lg font-bold text-white">{p.title}</h3>
               <p className="text-sm leading-relaxed text-fg-muted">{p.description}</p>
               <p className="pt-1 font-mono text-xs text-fg-subtle">{p.tech.join(" · ")}</p>
+              {p.liveUrl && (
+                <a
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-brand hover:text-white"
+                >
+                  Visit live site <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              )}
             </div>
           </Reveal>
         ))}

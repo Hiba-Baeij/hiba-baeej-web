@@ -7,8 +7,8 @@ export const GithubSection = () => {
   return (
     <section className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6" aria-label="Engineering activity">
       <SectionHeading
-        eyebrow="GitHub / Engineering Activity"
-        title="Actively building in public"
+        eyebrow="GitHub"
+        title="Side projects"
         action={
           <a
             href={siteConfig.githubUrl}

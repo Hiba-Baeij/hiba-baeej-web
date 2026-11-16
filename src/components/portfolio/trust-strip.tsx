@@ -7,8 +7,6 @@ const companies = [
   "Mind Torches",
   "JetOrder",
   "ELKOOD",
-  "e-Dukan",
-  "SmartDocs AI",
   "Voucher Buyer",
   "Iqraa Dashboard",
 ];
@@ -18,7 +16,7 @@ export const TrustStrip = () => {
     <section className="border-y border-line py-8" aria-label="Companies and products">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-5 md:flex-row md:gap-10 md:px-6">
         <p className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle md:max-w-[200px]">
-          Experience across enterprise teams and products
+          Companies and products I've worked on
         </p>
         <div className="relative w-full overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
           <Marquee pauseOnHover className="[--duration:40s] [--gap:3rem]">

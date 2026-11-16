@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight, Download, Github, Mail } from "lucide-react";
 import { siteConfig } from "@/constants/portfolio";
@@ -39,7 +40,7 @@ const Hero = () => {
         className="animate-aurora pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] rounded-full bg-brand/10 blur-[120px]"
         aria-hidden="true"
       />
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-20 pt-32 md:px-6 md:pt-40 lg:grid-cols-[1.15fr_1fr] lg:pb-28 [&>*]:min-w-0">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-20 pt-24 md:px-6 md:pt-28 lg:grid-cols-[1.15fr_1fr] lg:pb-28 [&>*]:min-w-0">
         <div className="flex flex-col gap-6">
           <FadeIn>
             <span className="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-mint/[0.08] px-3 py-1.5 text-[13px] text-[#8FF0D6]">
@@ -98,7 +99,7 @@ const Hero = () => {
               <span className="ml-2 font-mono text-xs text-fg-subtle">hiba.config.ts</span>
             </div>
             <div className="overflow-x-auto px-5 pb-12 pt-6">
-              <TypedLines lines={codeLines} delay={0.8} className="font-mono text-[13px] leading-[1.9] text-[#C9CFDA] sm:text-sm" />
+              <TypedLines lines={codeLines.map((line, i) => <Fragment key={i}>{line}</Fragment>)} delay={0.8} className="font-mono text-[13px] leading-[1.9] text-[#C9CFDA] sm:text-sm" />
             </div>
           </div>
           <Float delay={2.2} className="absolute -bottom-8 -left-3 sm:-left-8">

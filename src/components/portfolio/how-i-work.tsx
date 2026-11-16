@@ -7,8 +7,8 @@ export const HowIWork = () => {
     <section id="how-i-work" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
       <SectionHeading
         eyebrow="How I Work"
-        title="A repeatable engineering process"
-        description="The same disciplined loop on every project — so you get predictable delivery, not surprises."
+        title="How a project usually goes"
+        description="Roughly the same steps every time, adjusted to the team and the deadline."
       />
       <div className="mt-12">
         <Stagger as="ol" stagger={0.1} className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 lg:grid-cols-3">

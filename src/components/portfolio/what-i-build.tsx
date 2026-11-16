@@ -11,8 +11,8 @@ export const WhatIBuild = () => {
     <section id="work" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
       <SectionHeading
         eyebrow="What I Build"
-        title="Capabilities, not just screens"
-        description="Products for companies that need more than a pretty UI — systems that handle real money, real users and real growth."
+        title="The kinds of projects I take on"
+        description="Most of my work falls into one of these four."
       />
       <Stagger className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3" stagger={0.1}>
         {whatIBuild.map((item, i) => {

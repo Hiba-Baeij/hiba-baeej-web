@@ -11,8 +11,8 @@ export const FeaturedProjects = () => {
     <section id="featured" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
       <SectionHeading
         eyebrow="Featured Work"
-        title="Case studies, not screenshots"
-        description="Real platforms in production — the problem, the architecture and the result."
+        title="Selected projects"
+        description="Each one covers the problem, how I built it and what came out of it."
         action={
           <Link href="/work" className="group inline-flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-white">
             All projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
