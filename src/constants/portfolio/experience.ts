@@ -3,7 +3,9 @@ export interface ExperienceRole {
   title: string;
   location: string;
   period: string;
+  current?: boolean;
   highlights: string[];
+  tech: string[];
 }
 
 export const experienceRoles: ExperienceRole[] = [
@@ -11,66 +13,61 @@ export const experienceRoles: ExperienceRole[] = [
     company: "Nirrov",
     title: "Frontend Developer",
     location: "KSA · Remote",
-    period: "October 2023 – Present",
+    period: "Dec 2023 – Present",
+    current: true,
     highlights: [
-      "Enterprise ERP systems (ASAPI ERP, Matrix ERP) and the Safeer Digital embassy platform.",
-      "React and Vue applications with TypeScript.",
-      "Complex data-driven interfaces and reusable component architecture.",
-      "AI-assisted and agentic development workflows.",
+      "Build enterprise frontends with React, Vue.js and TypeScript for ERP and digital-services platforms (ASAPI ERP, Safeer Digital).",
+      "Designed reusable component and CRUD systems using Factory, HOC and Compound Component patterns, improving reuse and reducing technical debt.",
+      "Integrated REST APIs with TanStack Query — caching, error/loading states and permissions.",
+      "Introduced AI-assisted workflows that reduced time spent on repetitive tasks.",
     ],
-  },
-  {
-    company: "Mind Torches",
-    title: "Frontend Developer",
-    location: "Jordan · Remote",
-    period: "April 2022 – October 2023",
-    highlights: [
-      "JetOrder, a large-scale store management platform.",
-      "Nuxt 2 → Vue 3 migration and TypeScript introduction.",
-      "Large-scale frontend modernization.",
-    ],
+    tech: ["React", "Vue 3", "TypeScript", "TanStack Query", "Laravel"],
   },
   {
     company: "Freelance",
     title: "Frontend Developer",
     location: "Remote",
-    period: "September 2023 – October 2024",
+    period: "Oct 2023 – Mar 2024",
     highlights: [
-      "Voucher Buyer, Paradise Road, and Iqraa Dashboard.",
-      "Dental Clinic Management System.",
-      "E-commerce and business applications with React, Next.js, Vue, TypeScript, and Tailwind CSS.",
+      "Voucher Buyer — multilingual gift-card resale platform with payment flows.",
+      "Iqraa Dashboard — currency-exchange monitoring platform connected to mobile apps.",
+      "Paradise Road — high-performance responsive website for a Saudi client.",
+      "Delivered a Dental Clinic Management System and other e-commerce / business apps.",
     ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    company: "Mind Torches",
+    title: "Frontend Developer",
+    location: "Jordan · Remote",
+    period: "Apr 2022 – Oct 2023",
+    highlights: [
+      "Migrated JetOrder, a large store-management app, from Nuxt 2 to Vue 3.",
+      "Introduced TypeScript across the codebase, improving type safety and maintainability.",
+      "Refactored legacy frontend patterns, reducing code complexity by 30%.",
+    ],
+    tech: ["Vue 3", "Nuxt", "TypeScript"],
   },
   {
     company: "ELKOOD",
     title: "Frontend Developer",
     location: "Syria · On-site",
-    period: "January 2021 – August 2023",
+    period: "Jan 2021 – Aug 2023",
     highlights: [
-      "CRM, e-commerce, and educational platforms built with Vue.js and Nuxt.js.",
-      "SSR and SEO work.",
-      "Modular component systems and REST API integrations.",
+      "Built CRM, e-commerce and educational platforms with Vue.js and Nuxt.js.",
+      "Improved structure and maintainability of 10+ applications through TypeScript and domain-driven design.",
+      "Integrated .NET APIs with SignalR for real-time notifications.",
     ],
+    tech: ["Vue.js", "Nuxt.js", "TypeScript", "SignalR"],
   },
 ];
 
 export const education = {
-  degree: "Bachelor of Information Engineering",
+  degree: "B.Sc. in Information Engineering",
   school: "University of Aleppo",
   location: "Aleppo, Syria",
-  period: "Graduated November 2024",
+  period: "Nov 2024",
 };
-
-export const softSkills = [
-  "Technical Leadership",
-  "Team Collaboration",
-  "Mentorship",
-  "Problem Solving",
-  "Product Thinking",
-  "Architecture & Decision Making",
-  "Communication",
-  "Attention to Detail",
-];
 
 export const languages = [
   { name: "Arabic", level: "Native" },
@@ -78,8 +75,15 @@ export const languages = [
 ];
 
 export const aboutText = [
-  "I'm an engineer who enjoys working on problems that are more complicated than they initially appear.",
-  "My experience has primarily focused on business applications, enterprise platforms, ERP systems, dashboards, and SaaS products.",
-  "I care about more than making an interface look good. I'm interested in how the entire system works: how data moves through the application, how components communicate, how APIs are designed, how architecture evolves, and how engineering teams can deliver faster without creating technical debt.",
-  "I'm particularly interested in the intersection between modern web development and AI-assisted engineering, where intelligent tools can automate repetitive work and allow engineers to spend more time solving meaningful problems.",
+  "I'm a Full-Stack Engineer with 5+ years of experience designing, developing and modernizing SaaS platforms, ERP systems and business-critical web applications.",
+  "My specialty is scalable frontend architecture — reusable component systems and complex, data-driven interfaces — backed by hands-on work on APIs, backend services and workflow automation.",
+  "I have a track record of modernizing legacy codebases and setting development patterns that make teams faster and products more consistent across business domains.",
+  "I use AI-assisted, agentic engineering workflows to move faster and raise code quality — delivering modular, reliable software that keeps evolving with the business.",
+];
+
+export const aboutFacts = [
+  { label: "Based in", value: "Syria · Remote worldwide" },
+  { label: "Focus", value: "SaaS · ERP · AI platforms" },
+  { label: "Education", value: "B.Sc. Information Engineering" },
+  { label: "Languages", value: "Arabic (Native) · English (Professional)" },
 ];

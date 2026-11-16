@@ -1,23 +1,30 @@
 export const siteConfig = {
   name: "Hiba Baeij",
-  role: "Senior Frontend & Full-Stack Engineer",
+  role: "Full-Stack Engineer",
+  roleLong: "Full-Stack Engineer · SaaS, ERP & AI Platforms",
   headline: "I build software that scales beyond the first version.",
   supporting:
-    "Building scalable enterprise platforms, SaaS products, and AI-powered applications with modern TypeScript architecture.",
-  techLine: ["React", "Next.js", "TypeScript", "Node.js", "NestJS", "AI Agents"],
+    "Full-Stack Engineer with 5+ years designing, building and modernizing SaaS platforms, ERP systems and business-critical web apps — from typed frontends and reusable component systems to APIs, real-time features and AI workflows.",
+  techLine: ["TypeScript", "React", "Next.js", "Vue 3", "NestJS", "Laravel", "PostgreSQL", "AI Agents"],
   description:
-    "Senior Frontend & Full-Stack Engineer building scalable enterprise platforms, SaaS products, and AI-powered applications with React, Next.js, TypeScript, and Node.js.",
-  // TODO: replace with real profile links
+    "Hiba Baeij — Full-Stack Engineer with 5+ years building SaaS platforms, multi-tenant ERP systems and AI-powered applications with TypeScript, React, Next.js, Vue 3, NestJS and Laravel. Open to remote work.",
+  location: "Syria · Open to Remote",
+  availability: "Available for remote roles & freelance projects",
   githubUrl: "https://github.com/hiba-baeij",
+  // TODO: confirm LinkedIn URL (not listed on the CV)
   linkedinUrl: "https://linkedin.com/in/hiba-baeij",
-  email: "mailto:hello@example.com",
+  emailAddress: "hibabeiaj@gmail.com",
+  email: "mailto:hibabeiaj@gmail.com",
+  phone: "+963 96723981",
+  whatsappUrl: "https://wa.me/96396723981",
+  cvUrl: "/cv/Hiba_Baeij_Full_Stack.pdf",
   contactText:
-    "I'm interested in working with ambitious teams building SaaS products, enterprise platforms, AI-powered applications, and technically challenging products.",
+    "Whether you're a company hiring for a senior frontend or full-stack role, or a business that needs an ERP, SaaS product or AI feature built right — I'd love to hear what you're working on.",
 } as const;
 
 export const metrics = [
-  { value: "5+", label: "Years Engineering" },
-  { value: "3+", label: "Enterprise Platforms" },
-  { value: "10+", label: "Products & Applications" },
-  { value: "Multiple", label: "Business Domains" },
+  { value: "5+", label: "Years shipping production software" },
+  { value: "100K+", label: "Requests / year on Safeer Digital" },
+  { value: "10+", label: "Apps restructured with TypeScript & DDD" },
+  { value: "30%", label: "Less code complexity after JetOrder refactor" },
 ] as const;

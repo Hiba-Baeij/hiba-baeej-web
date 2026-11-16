@@ -1,16 +1,19 @@
 import { metrics } from "@/constants/portfolio";
+import { CountUp, SpotlightCard, Stagger } from "./motion";
 
 export const Metrics = () => {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-8" aria-label="Metrics">
-      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
+    <section className="mx-auto w-full max-w-6xl px-5 pt-20 md:px-6" aria-label="Key numbers">
+      <Stagger className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" stagger={0.1}>
         {metrics.map((m) => (
-          <div key={m.label} className="flex flex-col items-center gap-1 bg-[#010104] px-4 py-10 text-center">
-            <span className="text-4xl font-semibold text-white md:text-5xl">{m.value}</span>
-            <span className="text-sm text-white/50">{m.label}</span>
-          </div>
+          <SpotlightCard key={m.label} className="surface">
+            <div className="flex flex-col gap-2 p-5 md:p-7">
+              <CountUp value={m.value} className="font-heading text-3xl font-bold tracking-tight text-white md:text-[44px]" />
+              <span className="text-xs leading-snug text-fg-muted md:text-sm">{m.label}</span>
+            </div>
+          </SpotlightCard>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 };

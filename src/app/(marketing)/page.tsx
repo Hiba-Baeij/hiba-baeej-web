@@ -18,6 +18,11 @@ const jsonLd = {
   name: siteConfig.name,
   jobTitle: siteConfig.role,
   description: siteConfig.description,
+  email: siteConfig.emailAddress,
+  address: { "@type": "PostalAddress", addressCountry: "SY" },
+  alumniOf: { "@type": "CollegeOrUniversity", name: "University of Aleppo" },
+  knowsLanguage: ["ar", "en"],
+  knowsAbout: ["React", "Next.js", "Vue.js", "TypeScript", "NestJS", "Laravel", "PostgreSQL", "ERP", "SaaS", "RAG", "MCP"],
   sameAs: [siteConfig.githubUrl, siteConfig.linkedinUrl],
 };
 

@@ -1,33 +1,68 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { projects } from "@/constants/portfolio";
-import { ProjectVisual } from "./visuals";
+import { ProjectShot } from "./project-shot";
+import SectionHeading from "./section-heading";
+import Reveal from "./reveal";
+import { Parallax, Stagger, StaggerItem } from "./motion";
 
 export const FeaturedProjects = () => {
   return (
-    <section id="featured" className="mx-auto w-full max-w-7xl px-4 py-20 md:px-8">
-      <p className="text-xs font-medium uppercase tracking-widest text-[#3b82f6]">Featured Work</p>
-      <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Case studies, not screenshots</h2>
-      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {projects.map((p) => (
-          <Link
-            key={p.slug}
-            href={`/work/${p.slug}`}
-            className="group relative block overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-1 transition-colors hover:border-white/25"
-          >
-            <ProjectVisual kind={p.visual.kind} />
-            <div className="p-6">
-              <p className="text-xs uppercase tracking-widest text-white/40">{p.category}</p>
-              <h3 className="mt-2 text-xl font-semibold text-white">{p.title}</h3>
-              <p className="mt-3 text-sm text-white/60">{p.highlight}</p>
-              <p className="mt-4 flex flex-wrap gap-2 text-xs text-white/40">
-                {p.tech.join(" · ")}
-              </p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#3b82f6]">
-                View case study <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
-            </div>
+    <section id="featured" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
+      <SectionHeading
+        eyebrow="Featured Work"
+        title="Case studies, not screenshots"
+        description="Real platforms in production — the problem, the architecture and the result."
+        action={
+          <Link href="/work" className="group inline-flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-white">
+            All projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
+        }
+      />
+      <div className="mt-12 flex flex-col gap-5">
+        {projects.slice(0, 4).map((p, i) => (
+          <Reveal key={p.slug}>
+            <Link
+              href={`/work/${p.slug}`}
+              className="surface group grid gap-8 p-5 transition-all duration-500 hover:-translate-y-1 hover:border-white/15 md:p-8 lg:grid-cols-2 lg:items-center"
+            >
+              <Parallax offset={24} className={i % 2 === 1 ? "lg:order-2" : undefined}>
+                <ProjectShot
+                  image={p.cover}
+                  kind={p.visual.kind}
+                  title={p.title}
+                  priority={i === 0}
+                  className="transition-all duration-700 group-hover:scale-[1.02] group-hover:border-brand/30 group-hover:shadow-[0_30px_80px_-30px_rgba(110,155,255,0.45)]"
+                />
+              </Parallax>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center justify-between gap-4">
+                  <p className="font-mono text-xs uppercase tracking-[0.1em] text-fg-subtle">{p.category}</p>
+                  <ArrowUpRight className="h-5 w-5 text-fg-subtle transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-white md:text-3xl">{p.title}</h3>
+                <p className="text-[15px] leading-relaxed text-fg-muted md:text-base">{p.description}</p>
+                <Stagger className="grid grid-cols-3 gap-2.5" stagger={0.12}>
+                  {p.impact.map((s) => (
+                    <StaggerItem key={s.label} pop className="rounded-xl border border-line bg-surface-2 p-3 md:p-4">
+                      <p className="font-heading text-lg font-bold text-white md:text-xl">{s.value}</p>
+                      <p className="mt-1 text-[11px] leading-snug text-fg-muted md:text-xs">{s.label}</p>
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+                <div className="flex flex-wrap gap-2">
+                  {p.tech.slice(0, 5).map((t) => (
+                    <span key={t} className="chip">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <span className="mt-1 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+                  Read case study <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
         ))}
       </div>
     </section>

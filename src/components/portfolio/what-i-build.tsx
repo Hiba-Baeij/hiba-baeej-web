@@ -1,39 +1,49 @@
-import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { Building2, Rocket, Sparkles, Layers } from "lucide-react";
+import { Building2, Layers, Rocket, Sparkles } from "lucide-react";
 import { whatIBuild } from "@/constants/portfolio";
+import { cn } from "@/utils";
+import SectionHeading from "./section-heading";
+import { SpotlightCard, Stagger } from "./motion";
 
 const icons = [Building2, Rocket, Sparkles, Layers];
 
 export const WhatIBuild = () => {
   return (
-    <section id="work" className="mx-auto w-full max-w-7xl px-4 py-20 md:px-8">
-      <p className="text-xs font-medium uppercase tracking-widest text-[#3b82f6]">What I Build</p>
-      <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Capabilities, not just screens</h2>
-      <BentoGrid className="mt-10 mx-auto">
+    <section id="work" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
+      <SectionHeading
+        eyebrow="What I Build"
+        title="Capabilities, not just screens"
+        description="Products for companies that need more than a pretty UI — systems that handle real money, real users and real growth."
+      />
+      <Stagger className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3" stagger={0.1}>
         {whatIBuild.map((item, i) => {
           const Icon = icons[i % icons.length];
           return (
-            <BentoGridItem
+            <SpotlightCard
               key={item.title}
-              title={item.title}
-              description={item.description}
-              header={
-                <div className="flex h-full min-h-[8rem] items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
-                  <Icon className="h-10 w-10 text-[#3b82f6]/70" />
+              as="article"
+              className={cn("surface transition-colors hover:border-white/15", item.emphasis && "md:col-span-2")}
+            >
+              <div className="flex h-full flex-col gap-4 p-7">
+                <div className="flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/12 text-brand transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span className="font-mono text-xs text-fg-subtle">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-              }
-              className={item.emphasis ? "md:col-span-2 lg:col-span-2 border-[#3b82f6]/40" : "border-white/10"}
-            />
+                <h3 className="font-heading text-xl font-bold text-white md:text-2xl">{item.title}</h3>
+                <p className="max-w-xl text-[15px] leading-relaxed text-fg-muted">{item.description}</p>
+                <div className="mt-auto flex flex-wrap gap-2 pt-2">
+                  {item.keywords.map((k) => (
+                    <span key={k} className="chip">
+                      {k}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </SpotlightCard>
           );
         })}
-      </BentoGrid>
-      <div className="mt-6 flex flex-wrap justify-center gap-2">
-        {whatIBuild.flatMap((c) => c.keywords).map((k) => (
-          <span key={k} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/60">
-            {k}
-          </span>
-        ))}
-      </div>
+      </Stagger>
     </section>
   );
 };

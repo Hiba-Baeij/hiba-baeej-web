@@ -1,15 +1,25 @@
 export interface ProjectVisual {
-  kind: "erp" | "embassy" | "store" | "saas" | "dashboard" | "website";
+  kind: "erp" | "embassy" | "store" | "saas" | "dashboard" | "website" | "ai" | "commerce";
+}
+
+export interface ProjectImage {
+  src: string;
+  caption: string;
+  width: number;
+  height: number;
 }
 
 export interface Project {
   slug: string;
+  cover?: ProjectImage;
+  gallery?: ProjectImage[];
   title: string;
   category: string;
   description: string;
   highlight: string;
   role: string;
   period: string;
+  impact: { value: string; label: string }[];
   contribution: string[];
   tech: string[];
   visual: ProjectVisual;
@@ -34,126 +44,211 @@ export interface SelectedProduct {
 export const projects: Project[] = [
   {
     slug: "asapi-erp",
-    title: "ASAPI ERP",
-    category: "Enterprise Resource Planning Platform",
-    description:
-      "A flexible ERP platform connecting an organization's operations within a unified system, providing dashboards and reports for better business decisions.",
-    highlight: "Building complex business workflows into a consistent, reusable enterprise interface.",
-    role: "Frontend Engineer",
-    period: "Nirrov",
-    contribution: [
-      "Developed complex enterprise interfaces across multiple business domains.",
-      "Built reusable and modular UI architecture.",
-      "Implemented dynamic tables, filtering, grouping, sorting, and data-driven workflows.",
-      "Developed dashboards for operational and management use cases.",
-      "Worked with API-driven architecture and scalable frontend patterns.",
-      "Focused on maintainability and consistency across a large application.",
+    cover: { src: "/images/projects/asapi-erp/3.webp", width: 1280, height: 1154, caption: "Purchase invoice — line items, taxes and live totals" },
+    gallery: [
+      { src: "/images/projects/asapi-erp/3.webp", width: 1280, height: 1154, caption: "Purchase invoice — line items, taxes and live totals" },
+      { src: "/images/projects/asapi-erp/1.webp", width: 1280, height: 747, caption: "Data table with advanced filters and bulk actions" },
+      { src: "/images/projects/asapi-erp/4.webp", width: 1280, height: 846, caption: "Sales order with customer, warehouse and pricing" },
+      { src: "/images/projects/asapi-erp/7.webp", width: 1280, height: 873, caption: "Product details — units, pricing and barcodes" },
+      { src: "/images/projects/asapi-erp/9.webp", width: 1280, height: 606, caption: "Products catalogue built on the generic CRUD resource view" },
+      { src: "/images/projects/asapi-erp/10.webp", width: 1280, height: 608, caption: "Accounting overview" },
+      { src: "/images/projects/asapi-erp/11.webp", width: 1280, height: 604, caption: "Reports centre — financial and inventory reports" },
+      { src: "/images/projects/asapi-erp/13.webp", width: 1280, height: 606, caption: "Fixed assets module" },
     ],
-    tech: ["React", "TypeScript", "MUI", "React Query", "REST APIs"],
+    title: "ASAPI ERP",
+    category: "Multi-tenant SaaS ERP",
+    description:
+      "A cloud ERP that lets small and mid-sized Saudi businesses run accounting, sales, inventory, POS, restaurants, HR and loyalty in one system — every company in its own isolated space.",
+    highlight:
+      "Two isolated apps on one shared component library, a typed API layer and ZATCA-compliant invoicing.",
+    role: "Frontend Engineer",
+    period: "Nirrov · 2023 – Present",
+    impact: [
+      { value: "2", label: "Isolated apps, one shared library" },
+      { value: "AR/EN", label: "Full i18n with RTL" },
+      { value: "ZATCA", label: "E-invoicing with QR codes" },
+    ],
+    contribution: [
+      "Architected the frontend as two isolated apps (Admin portal + Client Dashboard) on a shared component library.",
+      "Built a typed API layer on a generic service template (TypeScript generics) with TanStack Query caching, invalidation and request cancellation.",
+      "Implemented sales & purchase invoices, credit/debit notes, returns and prepayments with precise financial calculations and ZATCA e-invoicing.",
+      "Developed a generic CRUD resource view (table, card and kanban modes, URL-synced filters, pagination), virtualized tables and a dynamic report builder.",
+      "Implemented RBAC with permission-driven routing and UI, Arabic/English i18n with RTL, real-time notifications (Pusher, Laravel Echo), Google Maps and Excel import/export.",
+    ],
+    tech: ["React", "TypeScript", "TanStack Query", "MUI", "Pusher", "REST APIs"],
     visual: { kind: "erp" },
     caseStudy: {
       overview:
-        "ASAPI ERP is a flexible ERP platform designed to connect an organization's operations within a unified system, providing dashboards, reports, and operational tools for better business decisions.",
+        "ASAPI ERP is a multi-tenant cloud ERP for small and mid-sized businesses in Saudi Arabia. Accounting, sales, inventory, POS, restaurants, HR and customer loyalty live in one platform, and every financial document flows straight into the books.",
       businessProblem:
-        "Organizations operate across fragmented modules — inventory, HR, finance, sales, purchasing, and accounting — with no unified interface, making operations and reporting slow and inconsistent.",
+        "Owners and accountants were juggling separate tools and spreadsheets, with no single source of truth and no real-time view of the business — while also needing to comply with ZATCA e-invoicing rules.",
       myRole:
-        "Senior frontend engineer on a large enterprise team, responsible for complex business interfaces across multiple domains and the reusable UI architecture they run on.",
+        "Frontend engineer responsible for the frontend architecture, the shared component library, the typed data layer and core financial modules.",
       technicalChallenges: [
-        "Large datasets rendered as dynamic tables with filtering, grouping, and sorting.",
-        "Many business domains sharing a single consistent component system.",
-        "API-driven architecture with frequent data mutations and cache invalidation.",
-        "Maintaining visual and behavioral consistency across a very large application.",
+        "Serving two very different audiences — the platform operator and each tenant business — without duplicating code.",
+        "Precise financial calculations across invoices, notes, returns and prepayments.",
+        "Large, data-heavy screens that must stay fast and consistent across dozens of modules.",
+        "Permissions, bilingual RTL/LTR UI and real-time notifications across the whole product.",
       ],
       keyDecisions: [
-        "Built reusable table and CRUD primitives instead of per-domain screens.",
-        "Centralized server state handling with React Query for caching and optimistic workflows.",
-        "Enforced a modular component architecture to keep the growing codebase maintainable.",
+        "Split the frontend into two isolated apps sharing one component library.",
+        "Built a generic, TypeScript-generic service template so every resource gets a typed API client for free.",
+        "Standardized on a generic CRUD resource view (table / card / kanban) with URL-synced filters instead of per-module screens.",
+        "Made RBAC drive routing and UI, so permissions are enforced consistently everywhere.",
       ],
       result:
-        "A unified enterprise platform where complex business workflows ship consistently, and new domains are added on top of reusable systems rather than duplicated code.",
+        "A unified ERP where new modules are composed from reusable building blocks, financial documents post to the books automatically, and owners get accurate real-time reports.",
     },
   },
   {
     slug: "safeer-digital",
-    title: "Safeer Digital",
-    category: "Embassy Digital Platform",
-    description:
-      "A specialized digital platform for embassies and diplomatic missions, delivering digital services, improving beneficiary experience, and automating administrative workflows.",
-    highlight: "Designing complex service workflows and hierarchical interfaces for diplomatic digital services.",
-    role: "Frontend Engineer",
-    period: "Nirrov",
-    contribution: [
-      "Developed complex service interfaces using Vue.js and TypeScript.",
-      "Built recursive components for hierarchical and tree-based workflows.",
-      "Created reusable UI components using Vuetify.",
-      "Implemented dynamic forms and service workflows.",
-      "Worked on complex administrative interfaces and data-driven processes.",
-      "Improved maintainability through modular component architecture.",
+    cover: { src: "/images/projects/safeer-digital/1.webp", width: 1280, height: 607, caption: "Requests list — filters by branch, shift, embassy and status" },
+    gallery: [
+      { src: "/images/projects/safeer-digital/1.webp", width: 1280, height: 607, caption: "Requests list — filters by branch, shift, embassy and status" },
+      { src: "/images/projects/safeer-digital/3.webp", width: 1280, height: 604, caption: "Fingerprint appointment scheduling" },
+      { src: "/images/projects/safeer-digital/6.webp", width: 1280, height: 608, caption: "Fingerprint capture and verification" },
+      { src: "/images/projects/safeer-digital/9.webp", width: 1280, height: 732, caption: "Checkout — fees, payment methods and summary" },
+      { src: "/images/projects/safeer-digital/11.webp", width: 1280, height: 606, caption: "Services catalogue" },
+      { src: "/images/projects/safeer-digital/14.webp", width: 1280, height: 609, caption: "Service configuration — branches and fees" },
+      { src: "/images/projects/safeer-digital/15.webp", width: 1280, height: 604, caption: "Configurable request workflow" },
+      { src: "/images/projects/safeer-digital/18.webp", width: 1280, height: 580, caption: "Cashier shifts report" },
     ],
-    tech: ["Vue.js", "TypeScript", "Nuxt.js", "Vuetify", "REST APIs"],
+    title: "Safeer Digital (EDC)",
+    category: "Embassy Services & Operations Platform",
+    description:
+      "An operations platform for a leading embassy-services provider in Saudi Arabia, managing every request from submission through invoicing and accounting to delivery.",
+    highlight:
+      "Replaced paper-based workflows with one auditable system handling 100,000+ requests per year.",
+    role: "Full-Stack Engineer",
+    period: "Nirrov · 2023 – Present",
+    impact: [
+      { value: "100K+", label: "Requests handled per year" },
+      { value: "4", label: "Apps in a Vue 3 monorepo" },
+      { value: "QR", label: "Attendance verification + audit log" },
+    ],
+    contribution: [
+      "Built full-stack features across a Vue 3 monorepo (Admin, Customer, Driver and Landing apps) and a modular Laravel REST API.",
+      "Delivered the fingerprint-appointment system: branch schedules, time slots, holidays, booking actions and QR attendance verification with audit log.",
+      "Designed and built cashier shift management end to end — every payment, return and voucher tied to an open shift and enforced at the API level.",
+      "Built a complete accounting module (Trial Balance, Balance Sheet, Income Statement, Ledger) with ZATCA e-invoicing.",
+      "Integrated RBAC, staff management, Google Drive backups, SMS and Google Maps.",
+    ],
+    tech: ["Vue 3", "TypeScript", "Laravel", "Vuetify", "REST APIs"],
     visual: { kind: "embassy" },
     caseStudy: {
       overview:
-        "Safeer Digital is a specialized digital platform designed for embassies and diplomatic missions, enabling digital services, improved beneficiary experience, and automated administrative workflows.",
+        "Safeer Digital is an end-to-end operations platform for an embassy-services provider, used by staff across multiple branches to manage each service request from submission to delivery.",
       businessProblem:
-        "Diplomatic missions needed to digitize complex, multi-step services while keeping beneficiary experience simple and administrative workflows reliable.",
+        "High-volume service requests were tracked through manual, paper-based workflows — hard to audit, easy to lose, and disconnected from invoicing and accounting.",
       myRole:
-        "Frontend engineer on the platform team, building the service interfaces and the reusable components behind them.",
+        "Full-stack engineer building features across the Vue 3 frontend monorepo and the modular Laravel API, owning several modules end to end.",
       technicalChallenges: [
-        "Hierarchical, tree-based workflows that required recursive component composition.",
-        "Dynamic forms that adapt to service type and context.",
-        "Complex administrative interfaces handling real-time data.",
-        "Maintainability across a modular Vue/Vuetify codebase.",
+        "Appointment scheduling across branches, time slots and holidays with reliable booking actions.",
+        "QR attendance verification that prevents duplicate check-ins and leaves an audit trail.",
+        "Cash handling that must reconcile perfectly across shifts.",
+        "A complete accounting layer with Saudi e-invoicing compliance.",
       ],
       keyDecisions: [
-        "Used recursive components to model deep, variable-depth workflows.",
-        "Standardized forms and service workflows as reusable, data-driven components.",
-        "Kept components modular so new services compose from existing pieces.",
+        "Enforced cashier-shift rules at the API level, not only in the UI.",
+        "Designed QR verification as scan/code → review → confirm, with auto-verify and duplicate-check prevention.",
+        "Kept four apps in one monorepo to share components, types and API clients.",
       ],
       result:
-        "A platform where embassies deliver digital services with a consistent beneficiary experience and significantly automated administrative work.",
+        "One auditable system that handles 100,000+ requests per year, with PDF reconciliation reports and real-time financial statements.",
     },
   },
   {
-    slug: "matrix-erp",
-    title: "Matrix ERP",
-    category: "Enterprise ERP Platform",
-    description:
-      "A modern, scalable enterprise resource planning platform managing operational, financial, and administrative processes across multiple business domains.",
-    highlight: "Building reusable systems across inventory, HR, finance, sales, purchasing, and accounting.",
-    role: "Frontend Engineer",
-    period: "Nirrov",
-    contribution: [
-      "Developed enterprise dashboards and business management interfaces.",
-      "Worked across inventory, HR, finance, products, sales, purchasing, and accounting modules.",
-      "Built reusable components and scalable frontend patterns.",
-      "Implemented dynamic filtering, grouping, sorting, and data visualization.",
-      "Worked with complex CRUD workflows and API-driven applications.",
-      "Contributed to architecture decisions and frontend engineering standards.",
-      "Focused on creating maintainable systems capable of evolving with business requirements.",
+    slug: "smartdocs-ai",
+    cover: { src: "/images/projects/smartdocs-ai/2.webp", width: 1600, height: 757, caption: "Chat with cited source passages" },
+    gallery: [
+      { src: "/images/projects/smartdocs-ai/2.webp", width: 1600, height: 757, caption: "Chat with cited source passages" },
+      { src: "/images/projects/smartdocs-ai/1.webp", width: 1600, height: 750, caption: "Document library — PDF, Word and Excel upload" },
+      { src: "/images/projects/smartdocs-ai/cover.webp", width: 1600, height: 750, caption: "Arabic-first sign-in" },
     ],
-    tech: ["React", "TypeScript", "MUI", "React Query", "REST APIs"],
-    visual: { kind: "erp" },
+    title: "SmartDocs AI",
+    category: "AI Document Q&A (RAG)",
+    description:
+      "A RAG application that answers questions about a company's own PDF, Word and Excel files in Arabic and English — every answer cites its sources, and it says so when the answer isn't there.",
+    highlight: "Grounded, cited answers with hybrid Arabic full-text + vector retrieval.",
+    role: "Full-Stack Engineer",
+    period: "Personal product",
+    impact: [
+      { value: "AR/EN", label: "Cross-language retrieval" },
+      { value: "Cited", label: "Every answer links its source" },
+      { value: "Hybrid", label: "Full-text + vector search" },
+    ],
+    contribution: [
+      "Built an end-to-end RAG pipeline: parsing, chunking, embeddings, retrieval and grounded generation with citations.",
+      "Implemented hybrid retrieval combining PostgreSQL full-text search (Arabic) with vector similarity search.",
+      "Enforced grounded answers — a response is returned only if it cites retrieved passages; otherwise a fixed fallback.",
+      "Designed a provider-agnostic LLM layer (OpenAI-compatible adapter + deterministic mock for tests) with keys kept server-side.",
+    ],
+    tech: ["Angular", "NestJS", "PostgreSQL", "Vector Search", "LLMs", "RAG"],
+    visual: { kind: "ai" },
     caseStudy: {
       overview:
-        "Matrix ERP is a modern, scalable enterprise resource planning platform designed to manage operational, financial, and administrative processes, supporting multiple business domains with room for customization and integration.",
+        "SmartDocs AI lets teams ask questions about their own documents and get answers they can trust, with the exact source passages cited.",
       businessProblem:
-        "Businesses needed one ERP that spans inventory, HR, finance, products, sales, purchasing, and accounting without forcing them into rigid per-module silos.",
-      myRole:
-        "Frontend engineer contributing across nearly every module, plus architecture decisions and frontend engineering standards.",
+        "Generic chatbots hallucinate and can't be trusted with internal documents — especially in Arabic, where keyword search alone misses paraphrased questions.",
+      myRole: "Designed and built the full product: ingestion pipeline, retrieval, API and Angular UI.",
       technicalChallenges: [
-        "Seven-plus business domains with overlapping but distinct data models.",
-        "Dynamic tables with filtering, grouping, sorting, and visualization.",
-        "Complex CRUD workflows on an API-driven backend.",
-        "Keeping the system maintainable as requirements evolve.",
+        "Finding the right passage for paraphrased and cross-language (Arabic ↔ English) questions.",
+        "Preventing hallucinated answers.",
+        "Staying independent of any single LLM provider while remaining testable.",
       ],
       keyDecisions: [
-        "Standardized on reusable CRUD and data-visualization components shared across modules.",
-        "Introduced frontend engineering standards to keep cross-module consistency.",
-        "Chose API-driven architecture to decouple modules from each other.",
+        "Hybrid retrieval: PostgreSQL Arabic full-text search + vector similarity.",
+        "A strict grounding rule — no citation, no answer.",
+        "An OpenAI-compatible adapter with a deterministic mock for testing.",
       ],
       result:
-        "A scalable ERP where new business requirements land in existing reusable systems, and cross-module consistency is the default rather than the exception.",
+        "A document assistant that answers in Arabic and English with citations, and openly says when the documents don't hold the answer.",
+    },
+  },
+  {
+    slug: "e-dukan",
+    cover: { src: "/images/projects/e-dukan/cover.webp", width: 1600, height: 755, caption: "Arabic-first landing page" },
+    gallery: [
+      { src: "/images/projects/e-dukan/cover.webp", width: 1600, height: 755, caption: "Arabic-first landing page" },
+      { src: "/images/projects/e-dukan/1.webp", width: 1600, height: 763, caption: "Merchant sign-in by phone or email" },
+    ],
+    title: "e-Dukan",
+    category: "Multi-tenant E-commerce SaaS",
+    description:
+      "A SaaS platform that lets merchants open their own online store in minutes on its own subdomain, and run products, orders, promotions, payments and delivery from one dashboard.",
+    highlight: "Live with 10+ merchants — plus an MCP server so AI agents can operate stores safely.",
+    role: "Full-Stack Engineer",
+    period: "Personal product · Live",
+    impact: [
+      { value: "10+", label: "Active merchants" },
+      { value: "MCP", label: "Server generated from OpenAPI" },
+      { value: "4", label: "Notification channels" },
+    ],
+    contribution: [
+      "Built and deployed a multi-tenant TypeScript monorepo (NestJS, Next.js, Turborepo).",
+      "Implemented request-scoped multi-currency pricing with decimal-safe math and plan-limit enforcement guards.",
+      "Built wildcard event-driven notifications over FCM, Telegram, WhatsApp and SMTP.",
+      "Shipped a Model Context Protocol (MCP) server generated from OpenAPI specs, secured by OAuth 2.1 and scoped, hashed API keys.",
+    ],
+    tech: ["Next.js", "NestJS", "Turborepo", "PostgreSQL", "Prisma", "MCP"],
+    visual: { kind: "commerce" },
+    caseStudy: {
+      overview:
+        "e-Dukan is an Arabic-first e-commerce SaaS: merchants get a store on their own subdomain, shoppers get a fast storefront with guest checkout and local-currency pricing, and the operator manages every store from a central admin panel.",
+      businessProblem:
+        "Small merchants need a professional online store without technical skills, local-currency payments, or a big monthly bill.",
+      myRole: "Designed, built and deployed the full platform end to end.",
+      technicalChallenges: [
+        "Tenant isolation across subdomains in one codebase.",
+        "Correct multi-currency pricing without floating-point errors.",
+        "Letting AI agents act on a store without compromising security.",
+      ],
+      keyDecisions: [
+        "Turborepo monorepo sharing types between NestJS API and Next.js apps.",
+        "Request-scoped currency context with decimal-safe math.",
+        "An MCP server generated from the OpenAPI spec, protected by OAuth 2.1 and scoped hashed API keys.",
+      ],
+      result: "A live platform serving 10+ active merchants, ready for AI-agent automation.",
     },
   },
   {
@@ -161,38 +256,39 @@ export const projects: Project[] = [
     title: "JetOrder",
     category: "Store Management Platform",
     description:
-      "A large-scale store management platform, modernized through a migration from Nuxt 2 to Vue 3 and TypeScript.",
-    highlight: "Modernizing a large legacy frontend without losing business functionality.",
+      "A large store-management application migrated from Nuxt 2 to Vue 3 and TypeScript without losing business functionality.",
+    highlight: "Modernized a large legacy frontend and cut code complexity by 30%.",
     role: "Frontend Developer",
-    period: "Mind Torches",
-    contribution: [
-      "Migrated legacy application architecture to Vue 3.",
-      "Introduced TypeScript across the application.",
-      "Improved component modularity and maintainability.",
-      "Refactored legacy patterns and improved frontend structure.",
-      "Worked with complex business workflows and data-driven interfaces.",
+    period: "Mind Torches · 2022 – 2023",
+    impact: [
+      { value: "30%", label: "Less code complexity" },
+      { value: "Vue 3", label: "Migrated from Nuxt 2" },
+      { value: "TS", label: "Type safety across the codebase" },
     ],
-    tech: ["Vue 3", "Nuxt.js", "TypeScript"],
+    contribution: [
+      "Migrated the application from Nuxt 2 to Vue 3.",
+      "Introduced TypeScript across the codebase.",
+      "Refactored legacy frontend patterns, reducing code complexity by 30%.",
+    ],
+    tech: ["Vue 3", "Nuxt", "TypeScript"],
     visual: { kind: "store" },
     caseStudy: {
       overview:
-        "JetOrder is a large-scale store management platform where Hiba contributed to the migration from Nuxt 2 to Vue 3 and TypeScript.",
+        "JetOrder is a large store-management platform. The goal was to modernize the frontend while the product stayed live.",
       businessProblem:
-        "A large, long-lived store management platform was stuck on Nuxt 2 with legacy patterns, making it hard to maintain, type, and evolve safely.",
-      myRole:
-        "Frontend developer leading the modernization effort alongside the team.",
+        "The app was stuck on Nuxt 2 with legacy patterns, making it slow to change and risky to extend.",
+      myRole: "Frontend developer driving the migration and refactoring work.",
       technicalChallenges: [
-        "Migrating a large codebase from Nuxt 2 to Vue 3 without breaking business functionality.",
-        "Introducing TypeScript incrementally across the application.",
-        "Refactoring legacy patterns while features stayed live.",
+        "Migrating a large codebase without breaking business features.",
+        "Introducing TypeScript incrementally.",
+        "Refactoring legacy patterns while features kept shipping.",
       ],
       keyDecisions: [
-        "Treated the migration as a series of incremental, behavior-preserving refactors.",
-        "Introduced TypeScript as a foundation for the new component structure.",
-        "Increased component modularity to reduce coupling in the legacy code.",
+        "Incremental, behavior-preserving migration steps.",
+        "TypeScript as the foundation of the new component structure.",
+        "Smaller, decoupled components to reduce complexity.",
       ],
-      result:
-        "A modernized, typed, and more maintainable store management platform, with business functionality preserved throughout the migration.",
+      result: "A typed, maintainable Vue 3 codebase with 30% less code complexity.",
     },
   },
 ];
@@ -201,22 +297,29 @@ export const selectedProducts: SelectedProduct[] = [
   {
     slug: "voucher-buyer",
     title: "Voucher Buyer",
-    description: "A multilingual platform for selling unused gift cards and receiving cash.",
+    description: "Multilingual gift-card resale platform with payment flows.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     visual: { kind: "saas" },
   },
   {
+    slug: "iqraa-dashboard",
+    title: "Iqraa Dashboard",
+    description: "Currency-exchange monitoring platform connected to mobile apps.",
+    tech: ["React", "Tailwind CSS", "REST APIs"],
+    visual: { kind: "dashboard" },
+  },
+  {
     slug: "paradise-road",
     title: "Paradise Road",
-    description: "A responsive website for a Saudi client focused on performance, responsive design, and user experience.",
+    description: "High-performance responsive website for a Saudi client.",
     tech: ["Next.js", "Tailwind CSS"],
     visual: { kind: "website" },
   },
   {
-    slug: "iqraa-dashboard",
-    title: "Iqraa Dashboard",
-    description: "A currency management platform connected to mobile applications for monitoring currency exchange and digital transfers.",
-    tech: ["React", "Tailwind CSS", "REST APIs"],
+    slug: "dental-clinic",
+    title: "Dental Clinic System",
+    description: "Dental clinic management system delivered as a freelance project.",
+    tech: ["Business App", "REST APIs"],
     visual: { kind: "dashboard" },
   },
 ];

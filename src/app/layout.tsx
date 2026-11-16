@@ -1,11 +1,13 @@
-import { base, heading, handwriting } from "@/constants";
+import { base, heading, handwriting, mono } from "@/constants";
 import "@/styles/globals.css";
 import { cn, generateMetadata } from "@/utils";
 import Providers from "@/components/global/providers";
-import FlareCursor from "@/components/global/flare-cursor";
-import LoadingScreen from "@/components/global/loading-screen";
 
 export const metadata = generateMetadata();
+
+export const viewport = {
+    themeColor: "#07080B",
+};
 
 export default function RootLayout({
     children,
@@ -20,13 +22,10 @@ export default function RootLayout({
                     base.variable,
                     heading.variable,
                     handwriting.variable,
+                    mono.variable,
                 )}
             >
-                <Providers>
-                    <LoadingScreen />
-                    <FlareCursor />
-                    {children}
-                </Providers>
+                <Providers>{children}</Providers>
             </body>
         </html>
     );

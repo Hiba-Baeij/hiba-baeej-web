@@ -7,29 +7,30 @@ export interface CapabilityCard {
 
 export const whatIBuild: CapabilityCard[] = [
   {
-    title: "Enterprise Platforms",
+    title: "Enterprise & ERP Platforms",
     description:
-      "Complex business applications supporting operational workflows, large datasets, permissions, reporting, and multiple business domains.",
-    keywords: ["ERP", "CRM", "Finance", "HR", "Operations"],
+      "Multi-tenant ERP and operations systems with accounting, invoicing, inventory, HR, RBAC and real-time reporting — including ZATCA e-invoicing for Saudi businesses.",
+    keywords: ["ERP", "Accounting", "ZATCA", "RBAC", "Multi-tenant"],
+    emphasis: true,
   },
   {
     title: "SaaS Products",
     description:
-      "Scalable web applications with reusable architecture, authentication, APIs, dashboards, and modern user experiences.",
-    keywords: ["SaaS", "Multi-Tenant", "Admin Portals"],
+      "Subscription products with tenant isolation, plan limits, payments, multi-currency and admin portals — built to launch fast and scale cleanly.",
+    keywords: ["SaaS", "Subdomains", "Payments", "Admin Portals"],
   },
   {
     title: "AI-Powered Applications",
     description:
-      "Applications enhanced with AI agents, intelligent workflows, automation, and LLM-powered capabilities.",
-    keywords: ["AI Agents", "LLMs", "Automation", "Agentic Workflows"],
-    emphasis: true,
+      "RAG assistants with cited answers, MCP servers that let AI agents act safely on your product, and LLM features that don't hallucinate.",
+    keywords: ["RAG", "MCP", "LLMs", "AI Agents"],
   },
   {
-    title: "Full-Stack Applications",
+    title: "Full-Stack Web Apps",
     description:
-      "End-to-end applications covering frontend interfaces, APIs, databases, authentication, and deployment.",
-    keywords: ["Next.js", "Node.js", "NestJS", "PostgreSQL", "Prisma"],
+      "End-to-end delivery: typed React/Vue frontends, NestJS or Laravel APIs, PostgreSQL, real-time features, CI/CD and deployment.",
+    keywords: ["Next.js", "NestJS", "Laravel", "PostgreSQL", "WebSockets"],
+    emphasis: true,
   },
 ];
 
@@ -40,76 +41,90 @@ export interface ExpertiseGroup {
 
 export const expertiseGroups: ExpertiseGroup[] = [
   {
-    title: "Frontend Engineering",
-    skills: ["React", "Next.js", "Vue.js", "Nuxt.js", "TypeScript", "Tailwind CSS", "MUI", "Vuetify"],
+    title: "Frontend & UI",
+    skills: ["TypeScript", "React", "Next.js", "Vue 3", "Angular", "Tailwind CSS", "Shadcn", "MUI", "Vuetify"],
   },
   {
-    title: "Full-Stack Development",
-    skills: ["Next.js", "Node.js", "NestJS", "REST APIs", "PostgreSQL", "Prisma", "Authentication", "Authorization"],
+    title: "Backend & Data",
+    skills: ["Node.js", "NestJS", "Laravel", "PostgreSQL", "Prisma", "TanStack Query", "REST APIs", "WebSockets"],
   },
   {
-    title: "State & Data Management",
-    skills: ["TanStack Query", "React Query", "Zustand", "Redux", "Pinia", "Caching", "Optimistic Updates"],
+    title: "Tooling & DevOps",
+    skills: ["Git", "Docker", "CI/CD", "Vercel", "Vite", "Vitest", "Playwright", "Performance"],
   },
   {
-    title: "Architecture",
-    skills: ["Modular Architecture", "Component Systems", "API-driven Architecture", "Design Patterns", "Scalable Frontend Architecture", "Performance Optimization"],
+    title: "AI & Agentic Workflows",
+    skills: ["Agentic Engineering (TDD/SDD)", "Multi-Agent Architectures", "MCP Integration", "RAG", "LLM Adapters"],
   },
   {
-    title: "DevOps & Engineering Tools",
-    skills: ["Git", "GitHub", "Docker", "Linux", "CI/CD", "Nginx", "PM2", "Vercel", "Coolify"],
+    title: "Architecture & Patterns",
+    skills: ["Design Systems", "Factory / HOC / Compound", "Generic CRUD", "RBAC", "i18n & RTL", "Monorepos"],
   },
 ];
 
 export const aiCapabilities = [
-  "AI Coding Agents",
-  "Agentic Development Workflows",
-  "LLM Integration",
-  "Prompt & Context Engineering",
-  "AI-assisted Debugging",
-  "AI-assisted Refactoring",
-  "Code Review Automation",
-  "Development Automation",
+  "Agentic Engineering (TDD / SDD)",
+  "Multi-Agent Architectures",
+  "MCP Servers & Integration",
+  "RAG Pipelines",
+  "Hybrid Vector + Full-text Search",
+  "Provider-agnostic LLM Layers",
+  "Grounded, Cited Answers",
+  "AI-assisted Refactoring & Review",
 ];
 
 export const aiWorkflowSteps = [
-  "Requirement",
-  "AI Agent",
-  "Context",
-  "Implementation",
-  "Tests / Review",
-  "Human Engineering Decision",
+  { title: "Spec", description: "Requirements become a written spec (SDD)" },
+  { title: "Tests first", description: "Behaviour pinned down with tests (TDD)" },
+  { title: "Agents build", description: "AI agents implement with full context" },
+  { title: "Review", description: "Human review of architecture & security" },
+  { title: "Ship", description: "CI/CD, monitoring, iterate" },
+];
+
+export const aiHighlights = [
+  {
+    title: "SmartDocs AI",
+    description: "RAG over company documents in Arabic & English — every answer cites its source, or it says it doesn't know.",
+  },
+  {
+    title: "e-Dukan MCP Server",
+    description: "Generated from OpenAPI, secured by OAuth 2.1 and scoped hashed keys, so AI agents can run a store safely.",
+  },
+  {
+    title: "AI in the team workflow",
+    description: "Introduced AI-assisted workflows at Nirrov that cut time spent on repetitive engineering tasks.",
+  },
 ];
 
 export const howIWorkSteps = [
   {
     title: "Understand the Problem",
     description:
-      "Start from business requirements. Understand users, workflows, constraints, and expected behavior before writing components.",
+      "Start from the business: users, workflows, constraints and what success looks like — before writing a single component.",
   },
   {
     title: "Design the Architecture",
     description:
-      "Break complex requirements into maintainable modules with clear boundaries between UI, state, APIs, business logic, and data.",
+      "Split the system into clear modules — UI, state, typed API layer, business logic and data — so it can grow without rewrites.",
   },
   {
     title: "Build Reusable Systems",
     description:
-      "Create reusable components, patterns, utilities, and abstractions instead of repeatedly solving the same problem.",
+      "Generic CRUD views, shared component libraries and typed service templates instead of solving the same problem twice.",
   },
   {
     title: "Integrate & Validate",
     description:
-      "Connect frontend with APIs and backend services while handling loading states, errors, caching, permissions, validation, and edge cases.",
+      "Wire APIs with caching, loading/error states, permissions and validation. Cover the edge cases with tests.",
   },
   {
     title: "Optimize",
     description:
-      "Consider rendering strategy, data fetching, caching, bundle size, component architecture, and user experience. Performance is part of engineering.",
+      "Virtualized tables, smart data fetching, rendering strategy and bundle size. Performance is part of the feature.",
   },
   {
     title: "Automate",
     description:
-      "Use AI and automation to eliminate repetitive engineering work while maintaining quality and architectural control.",
+      "AI agents and CI/CD remove repetitive work, while architecture and quality stay under engineering control.",
   },
 ];

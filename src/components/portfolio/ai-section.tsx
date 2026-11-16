@@ -1,38 +1,60 @@
-import { CardSpotlight } from "@/components/ui/card-spotlight";
-import { aiCapabilities, aiWorkflowSteps } from "@/constants/portfolio";
-import { ArrowDown } from "lucide-react";
+import { Bot, FileSearch, Workflow } from "lucide-react";
+import { aiCapabilities, aiHighlights, aiWorkflowSteps } from "@/constants/portfolio";
+import SectionHeading from "./section-heading";
+import { SpotlightCard, Stagger, StaggerItem } from "./motion";
+
+const highlightIcons = [FileSearch, Bot, Workflow];
 
 export const AiSection = () => {
   return (
-    <section id="ai" className="relative mx-auto w-full max-w-7xl px-4 py-20 md:px-8">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.12),transparent_60%)]" />
-      <p className="text-xs font-medium uppercase tracking-widest text-[#3b82f6]">AI &amp; Agentic Engineering</p>
-      <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">Building with AI, not just using AI.</h2>
-      <p className="mt-4 max-w-2xl text-white/60">
-        I use AI as an engineering multiplier to automate repetitive work, accelerate implementation, and
-        improve development velocity while keeping architecture, business logic, security, and quality under
-        engineering control.
-      </p>
+    <section id="ai" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
+      <div className="relative overflow-hidden rounded-[28px] border border-brand/25 bg-[#0B0E17] p-6 md:p-12">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand/15 blur-[100px]" aria-hidden="true" />
+        <SectionHeading
+          eyebrow="AI & Agentic Engineering"
+          title="Building with AI, not just using AI."
+          description="I ship AI features customers can trust — RAG with cited answers, MCP servers for agent access — and use agentic workflows to deliver faster without losing control of architecture, security or quality."
+        />
 
-      <CardSpotlight className="mt-10">
-        <div className="flex flex-col items-center gap-2">
-          {aiWorkflowSteps.map((step, i) => (
-            <div key={step} className="flex flex-col items-center gap-2">
-              <div className="rounded-lg border border-[#3b82f6]/40 bg-[#3b82f6]/10 px-4 py-2 text-sm text-white">
-                {step}
-              </div>
-              {i < aiWorkflowSteps.length - 1 && <ArrowDown className="h-4 w-4 text-white/40" />}
-            </div>
-          ))}
+        <div className="relative mt-10">
+          <div className="absolute left-[10%] right-[10%] top-[34px] hidden h-px overflow-hidden bg-brand/20 lg:block" aria-hidden="true">
+            <div className="animate-beam h-full w-1/4 bg-gradient-to-r from-transparent via-brand to-transparent" />
+          </div>
+          <Stagger as="ol" className="relative grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5" stagger={0.12}>
+            {aiWorkflowSteps.map((s, i) => (
+              <StaggerItem key={s.title} as="li" className="flex h-full flex-col gap-1.5 rounded-2xl border border-line bg-[#111522] p-5 transition-colors hover:border-brand/40">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-brand/40 bg-[#0B0E17] font-mono text-[11px] text-brand">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="mt-2 font-semibold text-white">{s.title}</span>
+                <span className="text-[13px] leading-relaxed text-fg-muted">{s.description}</span>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
-      </CardSpotlight>
 
-      <div className="mt-10 flex flex-wrap justify-center gap-2">
-        {aiCapabilities.map((c) => (
-          <span key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-sm text-white/70">
-            {c}
-          </span>
-        ))}
+        <Stagger className="relative mt-4 grid grid-cols-1 gap-4 md:grid-cols-3" stagger={0.1}>
+          {aiHighlights.map((h, i) => {
+            const Icon = highlightIcons[i % highlightIcons.length];
+            return (
+              <SpotlightCard key={h.title} className="surface">
+                <div className="p-6">
+                  <Icon className="h-5 w-5 text-brand" aria-hidden="true" />
+                  <h3 className="mt-4 font-heading text-lg font-bold text-white">{h.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-fg-muted">{h.description}</p>
+                </div>
+              </SpotlightCard>
+            );
+          })}
+        </Stagger>
+
+        <Stagger className="relative mt-8 flex flex-wrap gap-2" stagger={0.04}>
+          {aiCapabilities.map((c) => (
+            <StaggerItem key={c} as="span" pop className="chip">
+              {c}
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );

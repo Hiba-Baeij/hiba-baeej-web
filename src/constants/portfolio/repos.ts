@@ -1,19 +1,17 @@
-// TODO: replace with real GitHub repositories once a real account exists.
-// This section is intentionally static — no fake activity.
 export const repos = [
   {
-    name: "portfolio",
-    description: "This portfolio. Built with Next.js, TypeScript, Tailwind, and Motion.",
+    name: "SmartDocs AI",
+    description: "RAG document Q&A with cited answers — Angular, NestJS, PostgreSQL hybrid search.",
     language: "TypeScript",
   },
   {
-    name: "enterprise-ui-systems",
-    description: "Patterns and components for large-scale enterprise frontend applications.",
+    name: "e-Dukan",
+    description: "Multi-tenant e-commerce SaaS — NestJS, Next.js, Turborepo, multi-currency pricing.",
     language: "TypeScript",
   },
   {
-    name: "agentic-engineering",
-    description: "Notes and workflows for AI-assisted and agentic software development.",
-    language: "Markdown",
+    name: "e-Dukan MCP Server",
+    description: "MCP server generated from OpenAPI specs, secured with OAuth 2.1 for AI agent access.",
+    language: "TypeScript",
   },
 ];

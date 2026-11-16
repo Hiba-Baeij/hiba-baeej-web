@@ -1,4 +1,4 @@
-import PortfolioNav from "@/components/portfolio/nav";
+import SiteHeader from "@/components/portfolio/nav";
 import Footer from "@/components/portfolio/footer";
 
 const MarketingLayout = ({
@@ -7,11 +7,17 @@ const MarketingLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <main className="w-full relative min-h-dvh">
-            {children}
+        <div className="relative min-h-dvh w-full">
+            <a
+                href="#main"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
+            >
+                Skip to content
+            </a>
+            <SiteHeader />
+            <main id="main">{children}</main>
             <Footer />
-            <PortfolioNav />
-        </main>
+        </div>
     );
 };
 

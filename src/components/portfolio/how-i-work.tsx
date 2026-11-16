@@ -1,24 +1,27 @@
-import { TracingBeam } from "@/components/ui/tracing-beam";
 import { howIWorkSteps } from "@/constants/portfolio";
+import SectionHeading from "./section-heading";
+import { Stagger, StaggerItem } from "./motion";
 
 export const HowIWork = () => {
   return (
-    <section id="how-i-work" className="mx-auto w-full max-w-7xl px-4 py-20 md:px-8">
-      <p className="text-xs font-medium uppercase tracking-widest text-[#3b82f6]">How I Work</p>
-      <h2 className="mt-3 text-3xl font-semibold text-white md:text-4xl">A repeatable engineering process</h2>
-      <TracingBeam className="mt-10">
-        <div className="flex flex-col gap-10">
+    <section id="how-i-work" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
+      <SectionHeading
+        eyebrow="How I Work"
+        title="A repeatable engineering process"
+        description="The same disciplined loop on every project — so you get predictable delivery, not surprises."
+      />
+      <div className="mt-12">
+        <Stagger as="ol" stagger={0.1} className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 lg:grid-cols-3">
           {howIWorkSteps.map((step, i) => (
-            <div key={step.title} className="relative pl-8">
-              <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full border border-[#3b82f6]/40 bg-[#3b82f6]/10 text-xs text-white">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 text-sm text-white/60">{step.description}</p>
-            </div>
+            <StaggerItem key={step.title} as="li" className="group relative flex flex-col gap-3 bg-ink p-7 transition-colors duration-300 hover:bg-surface">
+              <span className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-gradient-to-r from-brand to-mint transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
+              <span className="font-mono text-[13px] text-brand transition-transform duration-300 group-hover:translate-x-1">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="font-heading text-lg font-bold text-white">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-fg-muted">{step.description}</p>
+            </StaggerItem>
           ))}
-        </div>
-      </TracingBeam>
+        </Stagger>
+      </div>
     </section>
   );
 };
