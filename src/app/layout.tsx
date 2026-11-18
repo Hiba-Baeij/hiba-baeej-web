@@ -1,4 +1,4 @@
-import { base, heading, handwriting, mono } from "@/constants";
+import { base, heading, mono } from "@/constants";
 import "@/styles/globals.css";
 import { cn, generateMetadata } from "@/utils";
 import Providers from "@/components/global/providers";
@@ -21,7 +21,6 @@ export default function RootLayout({
                     "min-h-dvh bg-background text-foreground font-base antialiased overflow-x-hidden dark",
                     base.variable,
                     heading.variable,
-                    handwriting.variable,
                     mono.variable,
                 )}
             >

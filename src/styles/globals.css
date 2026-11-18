@@ -8,7 +8,6 @@
   --color-foreground: var(--foreground);
   --font-base: var(--font-base);
   --font-heading: var(--font-heading);
-  --font-handwriting: var(--font-handwriting);
   --font-mono: var(--font-mono);
   --color-ink: #07080B;
   --color-surface: #0D0F14;
@@ -233,9 +232,22 @@ html {
 .animate-glow-pulse { animation: glow-pulse 6s ease-in-out infinite; }
 .animate-aurora { animation: aurora 14s ease-in-out infinite; }
 
+/* Hero entrance: pure CSS so the headline paints before JS hydrates (better LCP) */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(var(--rise-y, 16px)); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-word {
+  from { opacity: 0; transform: translateY(105%); }
+  to { opacity: 1; transform: none; }
+}
+.hero-rise { animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--rise-delay, 0s) both; }
+.hero-word { animation: hero-word 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--rise-delay, 0s) both; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .hero-rise, .hero-word { animation: none !important; }
 }
 
 .button__flair {

@@ -8,6 +8,7 @@ import { generateMetadata } from "@/utils";
 
 export const metadata = generateMetadata({
   title: "Work — Hiba Baeij",
+  path: "/work",
   description:
     "Case studies by Hiba Baeij: ASAPI ERP, Safeer Digital, SmartDocs AI, e-Dukan and JetOrder. ERP, SaaS and AI projects built with React, Vue 3, NestJS and Laravel.",
 });

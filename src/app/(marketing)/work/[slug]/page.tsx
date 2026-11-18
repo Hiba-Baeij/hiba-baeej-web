@@ -19,6 +19,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return baseMetadata({
     title: `${project.title} — Case study by Hiba Baeij`,
     description: project.description,
+    path: `/work/${project.slug}`,
+    type: "article",
   });
 }
 

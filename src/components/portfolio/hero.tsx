@@ -60,7 +60,7 @@ const Hero = () => {
             text={siteConfig.headline}
             highlight="scales"
             highlightClassName="text-brand"
-            delay={0.2}
+            delay={0.05}
             className="font-heading text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-[64px]"
           />
           <FadeIn delay={0.75}>

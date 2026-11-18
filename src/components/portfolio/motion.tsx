@@ -12,7 +12,7 @@ import {
   useTransform,
   type Variants,
 } from "motion/react";
-import { useEffect, useRef, useState, type ReactNode, type MouseEvent } from "react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties, type ReactNode, type MouseEvent } from "react";
 import { cn } from "@/utils";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -79,7 +79,7 @@ export const StaggerItem = ({
   );
 };
 
-/* ---------- Word-by-word headline ---------- */
+/* ---------- Word-by-word headline (CSS animation: paints before hydration, keeps LCP fast) ---------- */
 export const SplitWords = ({
   text,
   highlight,
@@ -93,35 +93,28 @@ export const SplitWords = ({
   highlightClassName?: string;
   delay?: number;
 }) => {
-  const reduce = useReducedMotion();
   const words = text.split(" ");
   return (
-    <motion.h1
-      className={className}
-      initial={reduce ? false : "hidden"}
-      animate="show"
-      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.07, delayChildren: delay } } }}
-      aria-label={text}
-    >
+    <h1 className={className} aria-label={text}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom" aria-hidden="true">
-          <motion.span
-            className={cn("inline-block", w === highlight && highlightClassName)}
-            variants={{
-              hidden: { y: "105%", opacity: 0 },
-              show: { y: "0%", opacity: 1, transition: { duration: 0.7, ease } },
-            }}
-          >
-            {w}
-            {i < words.length - 1 ? " " : ""}
-          </motion.span>
-        </span>
+        <Fragment key={i}>
+          <span className="inline-block overflow-hidden pb-[0.08em] align-bottom" aria-hidden="true">
+            <span
+              className={cn("hero-word inline-block", w === highlight && highlightClassName)}
+              style={{ "--rise-delay": `${delay + i * 0.07}s` } as CSSProperties}
+            >
+              {w}
+            </span>
+          </span>
+          {/* The space sits between the inline-block words; inside them it collapses. */}
+          {i < words.length - 1 && " "}
+        </Fragment>
       ))}
-    </motion.h1>
+    </h1>
   );
 };
 
-/* ---------- Fade-up on mount (hero) ---------- */
+/* ---------- Fade-up on mount (hero, CSS animation) ---------- */
 export const FadeIn = ({
   children,
   delay = 0,
@@ -132,19 +125,14 @@ export const FadeIn = ({
   delay?: number;
   className?: string;
   y?: number;
-}) => {
-  const reduce = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+}) => (
+  <div
+    className={cn("hero-rise", className)}
+    style={{ "--rise-delay": `${delay}s`, "--rise-y": `${y}px` } as CSSProperties}
+  >
+    {children}
+  </div>
+);
 
 /* ---------- Floating element (gentle idle bob) ---------- */
 export const Float = ({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) => {
