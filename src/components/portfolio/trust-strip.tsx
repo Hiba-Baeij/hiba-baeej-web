@@ -13,6 +13,7 @@ const brands: Brand[] = [
   { name: "ASAPI ERP", logo: "/logo/brands/asapi.svg", width: 510, height: 85 },
   { name: "Safeer Digital", logo: "/logo/brands/safeer-digital.svg", width: 300, height: 72 },
   { name: "e-Dukan", logo: "/logo/brands/e-dukan-mark.svg", width: 152, height: 60 },
+  { name: "SmartDocs AI", logo: "/logo/brands/smartdocs-ai-mark.svg", width: 64, height: 64 },
   { name: "Mind Torches" },
   { name: "JetOrder", logo: "/logo/brands/jetorder.png", width: 95, height: 40 },
   { name: "ELKOOD", logo: "/logo/brands/elkood.png", width: 423, height: 168 },

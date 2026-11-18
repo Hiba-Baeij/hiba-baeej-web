@@ -11,7 +11,7 @@ export interface ExperienceRole {
 export const experienceRoles: ExperienceRole[] = [
   {
     company: "Nirrov",
-    title: "Frontend Developer",
+    title: "Full Stack Developer",
     location: "KSA · Remote",
     period: "Dec 2023 – Present",
     current: true,

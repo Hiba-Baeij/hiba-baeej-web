@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Hiba Baeij",
-  role: "Frontend & Full-Stack Engineer",
-  roleLong: "Senior Frontend Engineer · Full-Stack · ERP, SaaS & AI",
+  role: "Full-Stack Engineer",
+  roleLong: "Full-Stack Engineer · ERP, SaaS & AI",
   headline: "I build software that scales beyond the first version.",
   supporting:
     "For the past five years I've built ERP systems, SaaS products and internal tools for companies in Saudi Arabia, Jordan and Syria. Most of my work is the frontend architecture: the tables, forms and permission rules people use all day. When a project needs it, I write the NestJS or Laravel API behind it too.",

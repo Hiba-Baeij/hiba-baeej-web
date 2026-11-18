@@ -358,6 +358,7 @@ export const projects: Project[] = [
       { src: "/images/projects/smartdocs-ai/cover.webp", width: 1600, height: 750, caption: "Arabic-first sign-in" },
     ],
     title: "SmartDocs AI",
+    logo: "/logo/brands/smartdocs-ai-mark.svg",
     liveUrl: "https://smartdocs.e-dukkan.shop/",
     category: "AI Document Q&A (RAG)",
     description:
