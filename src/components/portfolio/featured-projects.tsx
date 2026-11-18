@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { projects } from "@/constants/portfolio";
+import { featuredProjects, projects } from "@/constants/portfolio";
 import { ProjectShot } from "./project-shot";
+import { BrandMark } from "./brand-mark";
 import SectionHeading from "./section-heading";
 import Reveal from "./reveal";
 import { Parallax, Stagger, StaggerItem } from "./motion";
@@ -15,12 +16,12 @@ export const FeaturedProjects = () => {
         description="Each one covers the problem, how I built it and what came out of it."
         action={
           <Link href="/work" className="group inline-flex items-center gap-2 text-sm font-medium text-fg-muted hover:text-white">
-            All projects <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            All projects ({projects.length}) <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         }
       />
       <div className="mt-12 flex flex-col gap-5">
-        {projects.slice(0, 4).map((p, i) => (
+        {featuredProjects.map((p, i) => (
           <Reveal key={p.slug}>
             <Link
               href={`/work/${p.slug}`}
@@ -37,7 +38,10 @@ export const FeaturedProjects = () => {
               </Parallax>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between gap-4">
-                  <p className="font-mono text-xs uppercase tracking-[0.1em] text-fg-subtle">{p.category}</p>
+                  <div className="flex items-center gap-3">
+                    <BrandMark logo={p.logo} title={p.title} />
+                    <p className="font-mono text-xs uppercase tracking-[0.1em] text-fg-subtle">{p.category}</p>
+                  </div>
                   <ArrowUpRight className="h-5 w-5 text-fg-subtle transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-white md:text-3xl">{p.title}</h3>
@@ -65,6 +69,17 @@ export const FeaturedProjects = () => {
           </Reveal>
         ))}
       </div>
+      {projects.length > featuredProjects.length && (
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/work"
+            className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface-2 px-6 text-sm font-semibold text-white transition-colors hover:border-brand/40"
+          >
+            View all {projects.length} projects
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

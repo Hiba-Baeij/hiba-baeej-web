@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -46,9 +47,7 @@ export const SiteHeader = () => {
       {scrolled && <ScrollProgress />}
       <nav aria-label="Main" className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 md:h-[72px] md:px-6">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-brand font-heading text-sm font-extrabold text-ink">
-            HB
-          </span>
+          <Image src="/logo/logo-mark.svg" alt="" width={36} height={36} unoptimized priority className="h-9 w-9" />
           <span className="font-heading text-base font-bold text-white">{siteConfig.name}</span>
         </Link>
 

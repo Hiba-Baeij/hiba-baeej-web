@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Safeer Digital">
+  <defs>
+    <linearGradient id="sfr-bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5B7FFF"/>
+      <stop offset="1" stop-color="#2A3FB8"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield: trust / official representation -->
+  <path d="M32 4 L55 11.5 V29 C55 44 45.5 54.5 32 60 C18.5 54.5 9 44 9 29 V11.5 Z" fill="url(#sfr-bg)"/>
+  <path d="M32 8.5 L51 14.6 V29 C51 41.5 43.2 50.6 32 55.4" fill="none" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="1.5"/>
+  <!-- "S" as a delivery route -->
+  <path d="M40.5 21.5 C39.5 18.5 36.3 16.5 32 16.5 C26.8 16.5 23.5 19.3 23.5 23.3 C23.5 31.5 40.5 28.3 40.5 37.2 C40.5 41.8 36.8 45 31.5 45 C28.6 45 26.4 44.1 25 42.6"
+        fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Digital node / destination point -->
+  <circle cx="22.6" cy="40" r="3.6" fill="#F5B83D"/>
+  <circle cx="41" cy="21.8" r="2.2" fill="#FFFFFF"/>
+</svg>

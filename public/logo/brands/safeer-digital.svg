@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" width="300" height="72" role="img" aria-label="Safeer Digital">
+  <defs>
+    <linearGradient id="sfr-bg-f" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5B7FFF"/>
+      <stop offset="1" stop-color="#2A3FB8"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0 4)">
+    <path d="M32 4 L55 11.5 V29 C55 44 45.5 54.5 32 60 C18.5 54.5 9 44 9 29 V11.5 Z" fill="url(#sfr-bg-f)"/>
+    <path d="M32 8.5 L51 14.6 V29 C51 41.5 43.2 50.6 32 55.4" fill="none" stroke="#FFFFFF" stroke-opacity=".18" stroke-width="1.5"/>
+    <path d="M40.5 21.5 C39.5 18.5 36.3 16.5 32 16.5 C26.8 16.5 23.5 19.3 23.5 23.3 C23.5 31.5 40.5 28.3 40.5 37.2 C40.5 41.8 36.8 45 31.5 45 C28.6 45 26.4 44.1 25 42.6"
+          fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="22.6" cy="40" r="3.6" fill="#F5B83D"/>
+    <circle cx="41" cy="21.8" r="2.2" fill="#FFFFFF"/>
+  </g>
+  <text x="72" y="36" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-size="28" font-weight="700" fill="#1B2559" letter-spacing="-0.5">Safeer<tspan fill="#4361EE" font-weight="500"> Digital</tspan></text>
+  <text x="72" y="58" font-family="Cairo, Tajawal, 'Segoe UI', Arial, sans-serif" font-size="15" font-weight="600" fill="#8A94B8">سفير ديجيتال</text>
+</svg>

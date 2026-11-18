@@ -10,12 +10,12 @@ export const generateMetadata = ({
         {
             rel: "apple-touch-icon",
             sizes: "32x32",
-            url: "/icons/icon.svg",
+            url: "/logo/logo-mark.svg",
         },
         {
             rel: "icon",
             sizes: "32x32",
-            url: "/icons/icon.svg",
+            url: "/logo/logo-mark.svg",
         },
     ],
     noIndex = false

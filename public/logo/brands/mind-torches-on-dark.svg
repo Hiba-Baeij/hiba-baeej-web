@@ -1,0 +1,14 @@
+<svg width="224" height="64" viewBox="0 0 224 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<text x="0" y="31" font-family="Arial Black, Segoe UI Black, Arial, sans-serif" font-weight="900" font-size="27" fill="#FFFFFF">MIND</text>
+<text x="1" y="49" font-family="Arial Black, Segoe UI Black, Arial, sans-serif" font-weight="900" font-size="12.5" letter-spacing="1.2" fill="#B8BECC">TORCHES</text>
+<g transform="translate(92 0)" stroke="#23253A" stroke-width="2.5" stroke-linejoin="round">
+<path d="M5 17L24 26.5V52L9.5 42Z" fill="#4CC94A"/>
+<path d="M43 17L24 26.5V52L38.5 42Z" fill="#3BA9E8"/>
+<path d="M5 17L24 8L43 17L24 26.5Z" fill="#FF7A1A"/>
+<path d="M24 1.5C27 5.5 31 7.5 31 11.5C31 14.5 28 16.5 24 16.5C20 16.5 17 14.5 17 11.5C17 8.5 19.5 6.5 20.5 3.5C21.6 5.4 22.8 6.3 24 6.6C24.6 5 24.6 3.3 24 1.5Z" fill="#FFC22E"/>
+<path d="M24 26.5V52" stroke-width="1.5"/>
+<circle cx="24" cy="57.5" r="3" fill="#F0508C"/>
+</g>
+<text x="221" y="31" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-weight="700" text-anchor="end" font-size="27" fill="#FFFFFF">مايند</text>
+<text x="221" y="51" font-family="Segoe UI, Tahoma, Arial, sans-serif" font-weight="700" text-anchor="end" font-size="15" fill="#B8BECC">تورتشز</text>
+</svg>

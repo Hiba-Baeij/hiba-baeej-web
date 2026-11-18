@@ -1,0 +1,25 @@
+<svg width="340" height="100" viewBox="0 0 340 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Hiba Baeij</title>
+  <rect x="1.5" y="1.5" width="97" height="97" rx="24" fill="url(#hb-bg)" stroke="url(#hb-border)" stroke-width="3"/>
+  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+    <path d="M30 26V74" stroke="#FBFCF8"/>
+    <path d="M48 26V74" stroke="#FBFCF8"/>
+    <path d="M30 62Q30 50 42 50H58A12 12 0 0 1 58 74H48" stroke="url(#hb-accent)"/>
+  </g>
+  <text x="122" y="56" fill="#03070F" font-family="Satoshi, Inter, 'Segoe UI', sans-serif" font-size="32" font-weight="700" letter-spacing="-0.5">Hiba Baeij</text>
+  <text x="123" y="80" fill="#0066FF" font-family="Satoshi, Inter, 'Segoe UI', sans-serif" font-size="13" font-weight="500" letter-spacing="2.6">SOFTWARE ENGINEER</text>
+  <defs>
+    <linearGradient id="hb-bg" x1="0" y1="0" x2="117.5" y2="117.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#03070F"/>
+      <stop offset="1" stop-color="#0B2A66"/>
+    </linearGradient>
+    <linearGradient id="hb-border" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="hb-accent" x1="30" y1="50" x2="70" y2="74" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBFCF8"/>
+      <stop offset="1" stop-color="#6E9BFF"/>
+    </linearGradient>
+  </defs>
+</svg>

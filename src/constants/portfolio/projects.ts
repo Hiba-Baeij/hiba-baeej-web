@@ -9,11 +9,28 @@ export interface ProjectImage {
   height: number;
 }
 
+export type ProjectGroup = "erp" | "saas" | "ai" | "commerce" | "web";
+
+/** Filter labels on the /work page, in display order. Only groups that have projects are shown. */
+export const projectGroups: { id: ProjectGroup; label: string }[] = [
+  { id: "erp", label: "ERP & Operations" },
+  { id: "saas", label: "SaaS" },
+  { id: "ai", label: "AI" },
+  { id: "commerce", label: "E-commerce" },
+  { id: "web", label: "Websites" },
+];
+
 export interface Project {
   slug: string;
+  /** Filter group on the /work page. */
+  group: ProjectGroup;
+  /** Show on the home page "Selected projects" section (first 4 featured are shown). */
+  featured?: boolean;
   cover?: ProjectImage;
   gallery?: ProjectImage[];
   title: string;
+  /** Brand mark shown as the project icon (public path). Missing → initials fallback. */
+  logo?: string;
   liveUrl?: string;
   category: string;
   description: string;
@@ -37,6 +54,7 @@ export interface Project {
 export interface SelectedProduct {
   slug: string;
   title: string;
+  logo?: string;
   liveUrl?: string;
   description: string;
   tech: string[];
@@ -46,6 +64,8 @@ export interface SelectedProduct {
 export const projects: Project[] = [
   {
     slug: "asapi-erp",
+    group: "erp",
+    featured: true,
     cover: { src: "/images/projects/asapi-erp/3.webp", width: 1280, height: 1154, caption: "Purchase invoice: line items, taxes and live totals" },
     gallery: [
       { src: "/images/projects/asapi-erp/3.webp", width: 1280, height: 1154, caption: "Purchase invoice: line items, taxes and live totals" },
@@ -58,6 +78,7 @@ export const projects: Project[] = [
       { src: "/images/projects/asapi-erp/13.webp", width: 1280, height: 606, caption: "Fixed assets module" },
     ],
     title: "ASAPI ERP",
+    logo: "/logo/brands/asapi-mark.svg",
     category: "Multi-tenant SaaS ERP",
     description:
       "A cloud ERP for small and mid-sized Saudi businesses. Accounting, sales, inventory, POS, restaurants, HR and loyalty run in one system, and each company's data is kept separate.",
@@ -103,7 +124,173 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "asapi-website",
+    group: "web",
+    cover: { src: "/images/projects/asapi-website/cover.png", width: 1918, height: 911, caption: "Arabic hero with a live product preview of the fleet module" },
+    gallery: [
+      { src: "/images/projects/asapi-website/cover.png", width: 1918, height: 911, caption: "Arabic hero with a live product preview of the fleet module" },
+      { src: "/images/projects/asapi-website/3.png", width: 1918, height: 909, caption: "\"One transaction updates everything\": animated data-flow section" },
+      { src: "/images/projects/asapi-website/2.png", width: 1918, height: 909, caption: "Industry picker that recommends apps, next to the ZATCA invoice preview" },
+      { src: "/images/projects/asapi-website/5.png", width: 1919, height: 906, caption: "E-invoicing landing page for ZATCA Phase 2" },
+      { src: "/images/projects/asapi-website/4.png", width: 1919, height: 906, caption: "General accounting app page" },
+      { src: "/images/projects/asapi-website/1.png", width: 1917, height: 894, caption: "Why ASAPI, with a book-a-demo card" },
+    ],
+    title: "ASAPI Website",
+    logo: "/logo/brands/asapi-mark.svg",
+    liveUrl: "https://asapi.sa/ar",
+    category: "SaaS Marketing Website",
+    description:
+      "The public website of ASAPI, a cloud ERP for Saudi businesses. It explains each app, shows ZATCA e-invoicing, recommends apps by industry and turns visitors into free-trial and demo sign-ups.",
+    highlight: "Arabic-first, RTL by default, with English, dark mode and in-page product previews built in code instead of static screenshots.",
+    role: "Frontend Engineer",
+    period: "Nirrov · 2026",
+    impact: [
+      { value: "AR/EN", label: "Arabic-first with RTL" },
+      { value: "8", label: "Industries with tailored app picks" },
+      { value: "ZATCA", label: "Phase 2 e-invoicing page" },
+    ],
+    contribution: [
+      "Built the marketing site in Next.js (App Router) and TypeScript: home, app pages, e-invoicing, pricing, about and contact.",
+      "Made it Arabic-first with full RTL, an English version with locale-based routes (/ar, /en), and a light/dark theme.",
+      "Recreated product screens in code (fleet bookings, monthly summary, tax invoice with QR) so previews stay sharp, translatable and in sync with the theme.",
+      "Built an interactive industry picker (retail, restaurants, wholesale, contracting, services, workshops, car rental, manufacturing) that suggests the right apps.",
+      "Added an animated data-flow section and live activity log that show one sale updating stock, journal entries, ZATCA and reports.",
+      "Wired the free-trial and book-a-demo calls to action, and optimized metadata and Open Graph for SEO in both languages.",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n (RTL)", "SEO"],
+    visual: { kind: "website" },
+    caseStudy: {
+      overview:
+        "asapi.sa is where Saudi business owners first meet ASAPI ERP. It presents the platform's apps (accounting, inventory, POS, CRM, HR, car rental and more), explains ZATCA e-invoicing and leads visitors to a 14-day free trial or a demo.",
+      businessProblem:
+        "An ERP is hard to explain with text alone, and the target audience reads Arabic first. The site had to show how the product works, prove ZATCA compliance and help each type of business find the apps it needs.",
+      myRole: "I built the website frontend: layout, components, Arabic/English content structure, interactive sections and SEO.",
+      technicalChallenges: [
+        "Arabic-first RTL layouts that still look right in English LTR.",
+        "Showing realistic product screens without heavy screenshots that go out of date.",
+        "Keeping an animation-rich, image-light page fast and indexable in two languages.",
+      ],
+      keyDecisions: [
+        "Built product previews as real components, so they follow the theme, language and direction automatically.",
+        "Locale-based routing with separate metadata per language for SEO.",
+        "One industry picker that maps each business type to recommended apps, instead of a long feature list.",
+      ],
+      result:
+        "The site is live at asapi.sa and serves as the main entry point to ASAPI ERP, with clear paths to a free trial or a demo in Arabic and English.",
+    },
+  },
+  {
+    slug: "nirrov",
+    group: "web",
+    cover: { src: "/images/projects/nirrov/cover.png", width: 1919, height: 906, caption: "Arabic hero slider with animated brand shapes" },
+    gallery: [
+      { src: "/images/projects/nirrov/cover.png", width: 1919, height: 906, caption: "Arabic hero slider with animated brand shapes" },
+      { src: "/images/projects/nirrov/1.png", width: 1918, height: 902, caption: "About section: operate, grow and go digital, in dark mode" },
+      { src: "/images/projects/nirrov/3.png", width: 1919, height: 909, caption: "Business intelligence: ASAPI ERP, Safeer Digital and Matrix ERP" },
+      { src: "/images/projects/nirrov/2.png", width: 1919, height: 896, caption: "Sectors carousel: retail, logistics, healthcare, education" },
+      { src: "/images/projects/nirrov/5.png", width: 1919, height: 898, caption: "Five-step methodology, from discovery to follow-up" },
+      { src: "/images/projects/nirrov/4.png", width: 1919, height: 901, caption: "Service page: business excellence" },
+    ],
+    title: "Nirrov Website",
+    logo: "/logo/brands/nirrov-mark.svg",
+    liveUrl: "https://nirrov.com/ar",
+    category: "Corporate Website",
+    description:
+      "The corporate website of Nirrov, a Riyadh company offering business intelligence, e-services, business excellence and advertising. It presents the services, the company's own products, the sectors it serves and a knowledge center.",
+    highlight: "Arabic-first bilingual site with dark mode, structured data for SEO and a knowledge center for articles.",
+    role: "Frontend Engineer",
+    period: "Nirrov · 2026",
+    impact: [
+      { value: "AR/EN", label: "Arabic-first with RTL" },
+      { value: "4", label: "Service lines, each with its own page" },
+      { value: "SEO", label: "JSON-LD structured data per page" },
+    ],
+    contribution: [
+      "Built the site in Next.js (App Router), TypeScript and Tailwind CSS: home, about, four service pages, knowledge center, contact and privacy.",
+      "Made it Arabic-first with full RTL, an English version on locale-based routes (/ar, /en), and a light/dark theme.",
+      "Built the hero slider, the tabbed about section (operate, grow, digital platforms), the sectors carousel and the five-step methodology section.",
+      "Added a knowledge center for articles, and a products section linking the company's platforms (ASAPI ERP, Safeer Digital, Matrix ERP).",
+      "Set up SEO in both languages: per-page metadata, Open Graph and JSON-LD structured data, plus a downloadable company profile and WhatsApp contact.",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "i18n (RTL)", "SEO"],
+    visual: { kind: "website" },
+    caseStudy: {
+      overview:
+        "nirrov.com is the main website of Nirrov, a Saudi company that helps organizations run better through ERP systems, digital e-services, business excellence programs and advertising.",
+      businessProblem:
+        "Nirrov offers very different services, from consulting to software products, to clients in many sectors. The site had to explain all of them clearly, in Arabic first, and lead each visitor to the right service or a direct contact.",
+      myRole: "I built the website frontend: the page layouts, components, bilingual content structure, theming and SEO.",
+      technicalChallenges: [
+        "Organizing four service lines and several products so a visitor finds the right one quickly.",
+        "Arabic-first RTL layouts and typography that still work in English.",
+        "Getting a mostly Arabic site indexed well, with correct metadata in both languages.",
+      ],
+      keyDecisions: [
+        "One service-page template reused for every service line, so new services take content only.",
+        "Locale-based routing with separate metadata and JSON-LD per language.",
+        "A knowledge center for articles, to bring search traffic and show the company's expertise.",
+      ],
+      result:
+        "The site is live at nirrov.com in Arabic and English, presenting Nirrov's services, products and sectors with direct paths to contact, WhatsApp and the company profile.",
+    },
+  },
+  {
+    slug: "unique-home",
+    group: "web",
+    cover: { src: "/images/projects/unqhome/cover.png", width: 1919, height: 911, caption: "Arabic hero slider with project gallery" },
+    gallery: [
+      { src: "/images/projects/unqhome/cover.png", width: 1919, height: 911, caption: "Arabic hero slider with project gallery" },
+      { src: "/images/projects/unqhome/1.png", width: 1919, height: 907, caption: "About section with experience and client counters" },
+      { src: "/images/projects/unqhome/2.png", width: 1919, height: 904, caption: "Services: interior, villas & homes, and office design" },
+      { src: "/images/projects/unqhome/3.png", width: 1919, height: 906, caption: "Team carousel: execution, project management, consulting" },
+      { src: "/images/projects/unqhome/4.png", width: 1919, height: 906, caption: "Vision, mission and about accordion" },
+    ],
+    title: "Unique Home",
+    liveUrl: "https://unqhome-client.vercel.app/ar",
+    category: "Interior Design Company Website",
+    description:
+      "The website of Unique Home, an interior design, execution and turnkey home-furnishing company with 13+ years of experience. It presents custom kitchens and wardrobes made in the company's own factory, apartment furnishing, project management and ready-to-build designs.",
+    highlight: "A visual, Arabic-first site with Framer Motion animations and content managed from Strapi.",
+    role: "Frontend Developer",
+    period: "Freelance · Aug 2025",
+    impact: [
+      { value: "AR/EN", label: "Arabic-first with RTL" },
+      { value: "CMS", label: "Content and projects managed in Strapi" },
+      { value: "Motion", label: "Animated sliders and sections" },
+    ],
+    contribution: [
+      "Built the website in Next.js: home, about, projects, services and contact.",
+      "Connected pages to a Strapi headless CMS, so the team updates projects, services and text without a developer.",
+      "Built the hero slider, project gallery, services cards, team carousel and the vision/mission accordion.",
+      "Added Framer Motion animations for slides, counters and section reveals, keeping pages smooth on mobile.",
+      "Made it Arabic-first with RTL and an English version, with social links and a request form as the main call to action.",
+    ],
+    tech: ["Next.js", "React", "Strapi", "Framer Motion", "i18n (RTL)"],
+    visual: { kind: "website" },
+    caseStudy: {
+      overview:
+        "Unique Home designs and furnishes homes, villas and offices from start to finish: custom kitchens and wardrobes made from European materials in its own factory, apartment furnishing and decoration, and full project management with a dedicated project manager.",
+      businessProblem:
+        "An interior design company sells through visuals. Unique Home needed a site that shows its work beautifully, explains its services in Arabic first, and lets the team add new projects themselves.",
+      myRole: "I built the frontend and connected it to the Strapi CMS.",
+      technicalChallenges: [
+        "Image-heavy pages that still load fast.",
+        "Smooth animations that don't hurt performance or RTL layout.",
+        "Letting non-technical staff manage projects and content in two languages.",
+      ],
+      keyDecisions: [
+        "Strapi as a headless CMS, with Next.js fetching content per locale.",
+        "Framer Motion for sliders and reveal animations, instead of heavy slider libraries.",
+        "Optimized images with next/image for the large project galleries.",
+      ],
+      result:
+        "The site presents Unique Home's services and projects in Arabic and English, and the team updates its portfolio from the CMS on its own.",
+    },
+  },
+  {
     slug: "safeer-digital",
+    group: "erp",
+    featured: true,
     cover: { src: "/images/projects/safeer-digital/1.webp", width: 1280, height: 607, caption: "Requests list: filters by branch, shift, embassy and status" },
     gallery: [
       { src: "/images/projects/safeer-digital/1.webp", width: 1280, height: 607, caption: "Requests list: filters by branch, shift, embassy and status" },
@@ -116,6 +303,7 @@ export const projects: Project[] = [
       { src: "/images/projects/safeer-digital/18.webp", width: 1280, height: 580, caption: "Cashier shifts report" },
     ],
     title: "Safeer Digital (EDC)",
+    logo: "/logo/brands/safeer-digital-mark.svg",
     category: "Embassy Services & Operations Platform",
     description:
       "An operations platform for an embassy-services provider in Saudi Arabia. It tracks each request from submission through payment and accounting to delivery.",
@@ -161,6 +349,8 @@ export const projects: Project[] = [
   },
   {
     slug: "smartdocs-ai",
+    group: "ai",
+    featured: true,
     cover: { src: "/images/projects/smartdocs-ai/2.webp", width: 1600, height: 757, caption: "Chat with cited source passages" },
     gallery: [
       { src: "/images/projects/smartdocs-ai/2.webp", width: 1600, height: 757, caption: "Chat with cited source passages" },
@@ -210,12 +400,15 @@ export const projects: Project[] = [
   },
   {
     slug: "e-dukan",
+    group: "commerce",
+    featured: true,
     cover: { src: "/images/projects/e-dukan/cover.webp", width: 1600, height: 755, caption: "Arabic-first landing page" },
     gallery: [
       { src: "/images/projects/e-dukan/cover.webp", width: 1600, height: 755, caption: "Arabic-first landing page" },
       { src: "/images/projects/e-dukan/1.webp", width: 1600, height: 763, caption: "Merchant sign-in by phone or email" },
     ],
     title: "e-Dukan",
+    logo: "/logo/brands/e-dukan-mark.svg",
     liveUrl: "https://e-dukkan.shop/",
     category: "Multi-tenant E-commerce SaaS",
     description:
@@ -256,8 +449,116 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "voucher-buyer",
+    group: "commerce",
+    cover: { src: "/images/projects/voucher-buyer/1.png", width: 1919, height: 911, caption: "Brands catalogue: 100+ gift-card brands with live search" },
+    gallery: [
+      { src: "/images/projects/voucher-buyer/1.png", width: 1919, height: 911, caption: "Brands catalogue: 100+ gift-card brands with live search" },
+      { src: "/images/projects/voucher-buyer/2.png", width: 1919, height: 906, caption: "Payout methods strip: local wallets, transfers and USDT" },
+      { src: "/images/projects/voucher-buyer/cover.png", width: 1919, height: 905, caption: "Sign-in screen with WhatsApp support shortcut" },
+    ],
+    title: "Voucher Buyer",
+    logo: "/logo/brands/voucher-buyer-mark.svg",
+    liveUrl: "https://voucherbuyer.com/",
+    category: "Gift-card Resale Platform",
+    description:
+      "A bilingual platform where people sell unused gift cards for cash. Users pick a brand from 100+ supported cards, submit their codes, and get paid to the payout method they choose after the team verifies the cards.",
+    highlight: "Arabic/English with RTL, light and dark themes, and a payout flow covering local wallets, money transfers and USDT.",
+    role: "Frontend Developer",
+    period: "Freelance · 2023 – 2024",
+    impact: [
+      { value: "100+", label: "Supported gift-card brands" },
+      { value: "AR/EN", label: "Bilingual UI with RTL" },
+      { value: "8+", label: "Payout methods incl. USDT" },
+    ],
+    contribution: [
+      "Built the public site and user area in Next.js 15 and TypeScript: landing page, how-it-works, brands, FAQ, sign-up, login and password recovery.",
+      "Implemented Arabic/English localization with locale-based routing (/en, /ar), full RTL layout and a light/dark theme switch.",
+      "Built a searchable brands catalogue and a payout-methods strip that shows the currencies each method supports (SYP, USDT).",
+      "Connected the card-submission and payout-method flows to the backend REST API, with validated forms and clear error states.",
+      "Added motion with Framer Motion and Lottie animations, and kept pages fast with SSR, Open Graph metadata and an Nginx-served deployment.",
+    ],
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "MUI", "Framer Motion"],
+    visual: { kind: "commerce" },
+    caseStudy: {
+      overview:
+        "Voucher Buyer lets people turn unused gift cards (Amazon, iTunes, PlayStation, Steam and more) into cash, paid out through local wallets, money-transfer offices or USDT.",
+      businessProblem:
+        "Selling a gift card used to mean finding a buyer in chat groups with no fixed rate and no trust. The business needed one trusted place that explains the process, lists supported brands and takes card submissions in Arabic and English.",
+      myRole: "I built the frontend: the marketing pages, the authentication screens and the user flows for submitting cards and choosing a payout method.",
+      technicalChallenges: [
+        "One codebase serving Arabic (RTL) and English (LTR) with no layout breaks.",
+        "Presenting 100+ brands and many payout methods in a way that is quick to search and scan on mobile.",
+        "Keeping an animation-rich landing page fast and SEO-friendly.",
+      ],
+      keyDecisions: [
+        "Locale-based routing in the Next.js App Router, so each language has its own indexable URLs.",
+        "Tailwind CSS for layout and theming, with MUI used for complex form controls.",
+        "WhatsApp kept as a direct contact channel on every brand card, since that is how most users ask for the day's rate.",
+      ],
+      result:
+        "The platform is live at voucherbuyer.com, serving sellers in Arabic and English with a clear three-step flow from choosing a brand to getting paid.",
+    },
+  },
+  {
+    slug: "qr-code-germany",
+    group: "saas",
+    cover: { src: "/images/projects/qr-germany/cover.png", width: 1917, height: 907, caption: "Landing page: create your own QR codes" },
+    gallery: [
+      { src: "/images/projects/qr-germany/cover.png", width: 1917, height: 907, caption: "Landing page: create your own QR codes" },
+      { src: "/images/projects/qr-germany/1.png", width: 1919, height: 899, caption: "Create QR: dynamic code types (invoice, CV, food, shop page, medical...)" },
+      { src: "/images/projects/qr-germany/3.png", width: 1843, height: 844, caption: "More dynamic types, plus free static codes (e-mail, Giro code, contact data)" },
+      { src: "/images/projects/qr-germany/2.png", width: 1839, height: 842, caption: "Invoice QR form with a live phone preview" },
+      { src: "/images/projects/qr-germany/4.png", width: 1903, height: 855, caption: "QR designer: frame shapes, body shapes, eye styles and colors" },
+      { src: "/images/projects/qr-germany/5.png", width: 1919, height: 905, caption: "Pricing: one-time payment plans with unlimited scans" },
+    ],
+    title: "QR Code Germany",
+    liveUrl: "https://qrcodegermany.de/en",
+    category: "QR Code SaaS Platform",
+    description:
+      "A platform where businesses and individuals create QR codes that link printed products, cards, vehicles and ads to digital content: websites, contact details, social media, invoices, menus, product information and more.",
+    highlight: "16 dynamic QR types with live phone previews, a full QR designer and one-time-payment plans.",
+    role: "Frontend Developer",
+    period: "ELKOOD · Nov 2022",
+    impact: [
+      { value: "16", label: "Dynamic QR content types" },
+      { value: "60+", label: "Frame shapes in the QR designer" },
+      { value: "DE/EN", label: "Bilingual for the German market" },
+    ],
+    contribution: [
+      "Built the frontend in Nuxt.js, Vue and TypeScript with Vuetify: landing, pricing, FAQ, contact, sign-up and login.",
+      "Built the Create QR flow: a type picker for 16 dynamic codes (invoice, CV, food and medical products, shop page, business card, cars, PDF, video...) and free static codes (e-mail, Giro code, website, contact data).",
+      "Built multi-step forms for each QR type with a live phone preview that updates as the user types, including file and logo upload.",
+      "Built the QR designer: 60+ frame shapes with frame text and color, body shapes, eye styles and colors, then save & download.",
+      "Implemented German/English localization and the pricing page with one-time-payment plans.",
+    ],
+    tech: ["Nuxt.js", "Vue", "TypeScript", "Vuetify"],
+    visual: { kind: "saas" },
+    caseStudy: {
+      overview:
+        "QR Code Germany turns a physical interaction into a digital one with a single scan. A QR code on a product, business card, vehicle, restaurant table or ad takes the customer straight to the right information.",
+      businessProblem:
+        "Most QR generators only make a plain link. Businesses in Germany wanted codes that open real content (an invoice, a menu, a product sheet, a contact card), look like their brand, and don't come with a monthly subscription.",
+      myRole: "I built the frontend: the public pages, the QR creation flow, the per-type forms with live previews and the QR designer.",
+      technicalChallenges: [
+        "Supporting many QR types, each with its own fields and preview, without building 16 separate screens from scratch.",
+        "Keeping the phone preview in sync with long forms as the user types.",
+        "A designer with dozens of frames, shapes and colors that still renders a scannable code.",
+      ],
+      keyDecisions: [
+        "One shared multi-step form layout and preview frame, with each QR type supplying only its own fields and template.",
+        "Split the catalogue into dynamic (editable, paid) and free static codes, so users can start for free.",
+        "Vuetify components for the forms and dialogs, to ship fast with a consistent UI.",
+      ],
+      result:
+        "The platform is live at qrcodegermany.de. Businesses create branded QR codes for many use cases, preview them on a phone before printing, and pay once instead of monthly.",
+    },
+  },
+  {
     slug: "jetorder",
+    group: "commerce",
     title: "JetOrder",
+    logo: "/logo/brands/jetorder.png",
     category: "Store Management Platform",
     description:
       "A large store-management app that I moved from Nuxt 2 to Vue 3 and TypeScript while it stayed in use.",
@@ -299,16 +600,9 @@ export const projects: Project[] = [
 
 export const selectedProducts: SelectedProduct[] = [
   {
-    slug: "voucher-buyer",
-    title: "Voucher Buyer",
-    liveUrl: "https://voucherbuyer.com/",
-    description: "Multilingual gift-card resale platform with payment flows.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-    visual: { kind: "saas" },
-  },
-  {
     slug: "iqraa-dashboard",
     title: "Iqraa Dashboard",
+    logo: "/logo/brands/iqra-mark.svg",
     description: "Currency-exchange monitoring platform connected to mobile apps.",
     tech: ["React", "Tailwind CSS", "REST APIs"],
     visual: { kind: "dashboard" },
@@ -331,3 +625,5 @@ export const selectedProducts: SelectedProduct[] = [
 
 export const getProjectBySlug = (slug: string): Project | undefined =>
   projects.find((p) => p.slug === slug);
+
+export const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);

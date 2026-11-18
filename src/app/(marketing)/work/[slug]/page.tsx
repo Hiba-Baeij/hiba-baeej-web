@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { projects, getProjectBySlug } from "@/constants/portfolio";
 import { ProjectShot } from "@/components/portfolio/project-shot";
+import { BrandMark } from "@/components/portfolio/brand-mark";
 import Gallery from "@/components/portfolio/gallery";
 import Reveal from "@/components/portfolio/reveal";
 import { generateMetadata as baseMetadata } from "@/utils";
@@ -57,8 +58,11 @@ const ProjectPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       </Link>
 
       <Reveal className="mt-8 max-w-3xl">
-        <p className="eyebrow">{project.category}</p>
-        <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight text-white md:text-6xl">{project.title}</h1>
+        <div className="flex items-center gap-4">
+          <BrandMark logo={project.logo} title={project.title} size="lg" />
+          <p className="eyebrow">{project.category}</p>
+        </div>
+        <h1 className="mt-5 font-heading text-4xl font-bold tracking-tight text-white md:text-6xl">{project.title}</h1>
         <p className="mt-5 text-lg leading-relaxed text-fg-muted">{project.description}</p>
         {project.liveUrl && (
           <a
