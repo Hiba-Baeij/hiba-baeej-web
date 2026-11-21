@@ -1,0 +1,97 @@
+HIBA BAEIJ
+Senior Frontend Engineer | Full-Stack Engineer
+Syria (Open to Remote) · hello@example.com · linkedin.com/in/hiba-baeij · github.com/hiba-baeij
+
+SUMMARY
+Senior Frontend & Full-Stack Engineer with 5+ years building and evolving SaaS platforms, ERP systems, and business-critical web applications. My focus is building engineering systems that eliminate repeated work, standardize development, and enable teams to ship faster with fewer defects — from enterprise dashboards handling complex business workflows to AI-powered applications. Equally comfortable owning complex frontend architecture, establishing reusable component systems, and integrating full-stack product development with React, Next.js, Vue.js, TypeScript, Node.js, and NestJS. I build software that scales beyond the first version — modular, maintainable, and ready to evolve with business requirements.
+
+SELECTED ACHIEVEMENTS
+- Led frontend architecture across 10+ production products and 3 enterprise ERP platforms (ASAPI ERP, Matrix ERP, Safeer Digital).
+- Standardized development with reusable CRUD and data-view systems — dynamic tables, filtering, grouping, sorting, and data-driven workflows.
+- Migrated large-scale platform from Nuxt 2 to Vue 3 and introduced TypeScript, improving type safety and maintainability across the codebase.
+- Built recursive component architecture for hierarchical embassy workflows and complex administrative interfaces.
+- Established AI-assisted & agentic development workflows as standard practice, accelerating delivery while maintaining architectural control and code quality.
+
+CORE TECHNOLOGIES
+React, Next.js, TypeScript, Vue, Node.js, NestJS, PostgreSQL, Docker
+
+EXPERIENCE
+
+Frontend Developer — Nirrov · KSA / Remote | Dec 2023 – Present
+Enterprise-grade platforms including ERP systems and embassy digital services platforms
+- Developed complex enterprise interfaces using React, Vue.js, and TypeScript across inventory, HR, finance, products, sales, purchasing, and accounting modules.
+- Built reusable and modular UI architecture with scalable frontend patterns; designed component systems now used across large-scale ERP applications.
+- Implemented advanced data workflows — dynamic tables, filtering, grouping, sorting, and dashboards for operational and management use cases.
+- Developed Safeer Digital (EDC) — Embassy Digital Platform for diplomatic missions; created recursive components for hierarchical/tree-based workflows and dynamic service forms with Vuetify.
+- Worked with API-driven architecture and reusable CRUD patterns; integrated REST APIs with TanStack React Query handling loading states, error handling, caching, permissions, and edge cases.
+- Applied design patterns including Factory, Higher-Order Components, and Compound Components; contributed to architecture decisions and frontend engineering standards.
+- Established AI-assisted & agentic workflows to accelerate implementation, refactoring, debugging, and repetitive engineering tasks.
+
+Frontend Developer — Mind Torches · Jordan / Remote | Apr 2022 – Oct 2023
+JetOrder — Large-scale store management platform
+- Migrated large application from Nuxt 2 to Vue 3, modernizing legacy architecture.
+- Introduced TypeScript across the application, improving type safety, modularity, and developer productivity.
+- Refactored legacy frontend patterns and improved component modularity and maintainability.
+- Developed reusable components and complex business workflows for store management operations.
+
+Frontend Developer — Freelance · Remote | Sep 2023 – Oct 2024
+Web applications and digital products across e-commerce, fintech, and business services
+- Built Voucher Buyer — multilingual platform for selling unused gift cards for cash; responsive interfaces, multilingual experiences, API-driven workflows, and payment flows for international users — Next.js, TypeScript, Tailwind CSS.
+- Built Paradise Road — responsive high-performance website for Saudi client with strong focus on performance and UX — Next.js, Tailwind CSS.
+- Built Iqraa Dashboard — currency management platform connected to mobile apps for monitoring currency exchange and digital transfers — React, Tailwind CSS, REST APIs.
+- Delivered Dental Clinic Management System and additional e-commerce/business applications — React, Next.js, Vue.js, TypeScript.
+
+Frontend Developer — ELKOOD · Syria · On-site | Jan 2021 – Aug 2023
+- Delivered CRM systems, e-commerce platforms, and educational websites using Vue.js and Nuxt.js.
+- Built responsive and reusable interfaces with SSR and SEO optimization; developed modular component systems and integrated REST APIs.
+- Improved application structure and maintainability across multiple products; worked with responsive design and API-driven architecture.
+
+SELECTED PROJECTS
+
+ASAPI ERP — Enterprise Resource Planning Platform · React · TypeScript · MUI · React Query · REST APIs
+- Flexible ERP platform connecting organizational operations within a unified system with dashboards, reports, and operational tools.
+- Developed complex enterprise interfaces across multiple business domains with reusable modular UI architecture; implemented dynamic tables, filtering, grouping, sorting, and data-driven workflows.
+
+Safeer Digital (EDC) — Embassy Digital Platform · Vue.js · TypeScript · Nuxt.js · Vuetify · REST APIs
+- Specialized digital platform for embassies and diplomatic missions enabling digital services and administrative workflow automation.
+- Developed complex service interfaces with recursive components for hierarchical workflows; created reusable UI components and dynamic forms.
+
+Matrix ERP — SaaS ERP Product · React · TypeScript · MUI · React Query · REST APIs
+- Modern scalable ERP managing operational, financial, and administrative processes across inventory, HR, finance, products, sales, purchasing, and accounting.
+- Built enterprise dashboards and business management interfaces with reusable components, scalable patterns, advanced filtering, grouping, sorting, and data visualization.
+
+JetOrder — Store Management Platform · Vue 3 · Nuxt.js · TypeScript
+- Large-scale store management platform; migrated legacy architecture from Nuxt 2 to Vue 3, introduced TypeScript, and improved component modularity and frontend structure.
+
+SKILLS
+
+LANGUAGES & FRAMEWORKS
+TypeScript, JavaScript (ES6+), React, Next.js, Vue.js, Nuxt.js
+
+UI SYSTEMS
+Tailwind CSS, MUI, Vuetify, Responsive Design, SSR, SSG, SEO, SPA Architecture, Component Systems
+
+STATE & DATA
+TanStack Query, React Query, Zustand, Redux, Pinia, Server/Client State Management, API Caching, Optimistic Updates
+
+BACKEND & APIS
+Node.js, NestJS, REST APIs, API Architecture, Authentication & Authorization, PostgreSQL, Prisma, TypeORM, Next.js Full-Stack
+
+INFRASTRUCTURE & TOOLING
+Git, GitHub, Docker, Linux, CI/CD, Nginx, PM2, Vercel, Coolify, Cloud Deployment
+
+ARCHITECTURE & PRACTICES
+Modular Architecture, Component-Driven Development, Design Patterns, Reusable UI Systems, API-Driven & CRUD Architecture, Domain-Oriented Thinking, Scalable Frontend Architecture, Performance Optimization
+
+AI-ASSISTED ENGINEERING
+AI-Assisted Development, Agentic Workflows, LLM Integrations, Prompt & Context Engineering, Automated Refactoring, AI-Assisted Debugging & Code Review
+
+LEADERSHIP & CONTRIBUTIONS
+Technical Leadership, Architecture & Decision Making, Product Thinking, Team Collaboration, Mentorship, Communication
+
+EDUCATION
+B.Sc. in Information Engineering — University of Aleppo — 2024
+Aleppo, Syria · Graduated November 2024
+
+LANGUAGES
+Arabic — Native | English — Professional

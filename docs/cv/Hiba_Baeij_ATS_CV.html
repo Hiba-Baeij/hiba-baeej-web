@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiba Baeij — Senior Frontend & Full-Stack Engineer</title>
+<style>
+  @page { size: A4; margin: 14mm 13mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: Calibri, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 9.4pt;
+    line-height: 1.42;
+    color: #111;
+    background: #fff;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 24px;
+  }
+  a { color: #111; text-decoration: none; border-bottom: 1px solid #bbb; }
+  /* HEADER — Mohammad style: centered, uppercase, contact line with dots */
+  .header { text-align: center; margin-bottom: 14px; }
+  .header h1 { font-size: 19pt; font-weight: 800; letter-spacing: 2.5px; color: #000; margin-bottom: 2px; }
+  .header .titles { font-size: 9.6pt; font-weight: 600; color: #222; letter-spacing: 0.3px; margin-bottom: 4px; }
+  .header .contact { font-size: 8.4pt; color: #333; }
+  .header .contact span.dot { margin: 0 5px; color: #888; }
+  .rule { border: none; border-top: 1.6px solid #000; margin: 10px 0 12px 0; }
+  /* Section titles — ALL CAPS, bold, with small tracking like Mohammad */
+  .section { margin-bottom: 12px; }
+  .section-title {
+    font-size: 9.2pt;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #000;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+  }
+  .summary-text { font-size: 9.2pt; color: #1a1a1a; text-align: justify; line-height: 1.44; }
+  /* Achievements — compact bullet list */
+  ul { margin-left: 15px; }
+  li { font-size: 9.0pt; color: #1a1a1a; margin-bottom: 2px; line-height: 1.38; }
+  li::marker { color: #000; }
+  .achievements li { margin-bottom: 1.5px; }
+  /* Core tech line — centered, bold */
+  .core-tech { text-align: center; font-size: 9.0pt; color: #111; padding: 4px 0; }
+  .core-tech strong { font-weight: 800; letter-spacing: 0.5px; }
+  /* Experience */
+  .job { margin-bottom: 10px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .job-role { font-weight: 800; font-size: 9.4pt; color: #000; }
+  .job-role span { font-weight: 600; color: #222; }
+  .job-date { font-size: 8.6pt; color: #333; font-style: italic; white-space: nowrap; }
+  .job-sub { font-size: 8.5pt; color: #444; font-style: italic; margin-bottom: 3px; }
+  .tech-line { font-size: 8.2pt; color: #555; font-style: italic; margin-top: 2px; margin-left: 15px; }
+  /* Projects */
+  .proj { margin-bottom: 8px; }
+  .proj-title { font-weight: 800; font-size: 9.2pt; color: #000; }
+  .proj-title span { font-weight: 600; color: #333; font-size: 8.6pt; }
+  .proj-tech { font-size: 8.2pt; color: #555; font-style: italic; }
+  /* Skills grid — 2 columns visual but ATS-safe (flex, no tables) */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+  .skill-col { flex: 1 1 46%; min-width: 240px; }
+  .skill-group { margin-bottom: 6px; }
+  .skill-label { font-weight: 800; font-size: 8.3pt; letter-spacing: 0.6px; text-transform: uppercase; color: #000; border-bottom: 0.7px solid #ccc; padding-bottom: 1px; margin-bottom: 2px; display: block; }
+  .skill-text { font-size: 8.7pt; color: #222; line-height: 1.35; }
+  /* Education */
+  .edu { font-size: 9pt; }
+  .edu strong { font-size: 9.2pt; }
+  .footer { margin-top: 12px; border-top: 1px solid #ccc; padding-top: 6px; font-size: 7.2pt; color: #888; text-align: center; }
+  @media print {
+    body { padding: 0; max-width: none; }
+    a { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>HIBA BAEIJ</h1>
+  <div class="titles">Senior Frontend Engineer &nbsp;|&nbsp; Full-Stack Engineer</div>
+  <div class="contact">
+    Syria (Open to Remote) <span class="dot">·</span>
+    <a href="mailto:hello@example.com">hello@example.com</a> <span class="dot">·</span>
+    <a href="https://linkedin.com/in/hiba-baeij">linkedin.com/in/hiba-baeij</a> <span class="dot">·</span>
+    <a href="https://github.com/hiba-baeij">github.com/hiba-baeij</a>
+  </div>
+</div>
+<hr class="rule">
+
+<!-- SUMMARY -->
+<div class="section">
+  <div class="section-title">Summary</div>
+  <p class="summary-text">
+    Senior Frontend & Full-Stack Engineer with 5+ years building and evolving SaaS platforms, ERP systems, and business-critical web applications.
+    My focus is building engineering systems that eliminate repeated work, standardize development, and enable teams to ship faster with fewer defects — from enterprise dashboards handling complex business workflows to AI-powered applications.
+    Equally comfortable owning complex frontend architecture, establishing reusable component systems, and integrating full-stack product development with <strong>React, Next.js, Vue.js, TypeScript, Node.js, and NestJS</strong>.
+    I build software that scales beyond the first version — modular, maintainable, and ready to evolve with business requirements.
+  </p>
+</div>
+
+<!-- SELECTED ACHIEVEMENTS -->
+<div class="section">
+  <div class="section-title">Selected Achievements</div>
+  <ul class="achievements">
+    <li>Led frontend architecture across <strong>10+ production products</strong> and <strong>3 enterprise ERP platforms</strong> (ASAPI ERP, Matrix ERP, Safeer Digital).</li>
+    <li>Standardized development with <strong>reusable CRUD and data-view systems</strong> — dynamic tables, filtering, grouping, sorting, and data-driven workflows.</li>
+    <li>Migrated large-scale platform from <strong>Nuxt 2 to Vue 3</strong> and introduced <strong>TypeScript</strong>, improving type safety and maintainability across the codebase.</li>
+    <li>Built <strong>recursive component architecture</strong> for hierarchical embassy workflows and complex administrative interfaces.</li>
+    <li>Established <strong>AI-assisted & agentic development workflows</strong> as standard practice, accelerating delivery while maintaining architectural control and code quality.</li>
+  </ul>
+</div>
+
+<!-- CORE TECHNOLOGIES -->
+<div class="section">
+  <div class="section-title">Core Technologies</div>
+  <div class="core-tech">React &nbsp;·&nbsp; Next.js &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; Vue &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; NestJS &nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; Docker</div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <div class="section-title">Experience</div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-role">Frontend Developer — Nirrov <span>· KSA / Remote</span></div>
+      <div class="job-date">Dec 2023 – Present</div>
+    </div>
+    <div class="job-sub">Enterprise-grade platforms including ERP systems and embassy digital services platforms</div>
+    <ul>
+      <li>Developed complex enterprise interfaces using React, Vue.js, and TypeScript across inventory, HR, finance, products, sales, purchasing, and accounting modules.</li>
+      <li>Built reusable and modular UI architecture with scalable frontend patterns; designed component systems now used across large-scale ERP applications.</li>
+      <li>Implemented advanced data workflows — dynamic tables, filtering, grouping, sorting, and dashboards for operational and management use cases.</li>
+      <li>Developed <strong>Safeer Digital (EDC)</strong> — Embassy Digital Platform for diplomatic missions; created recursive components for hierarchical/tree-based workflows and dynamic service forms with Vuetify.</li>
+      <li>Worked with API-driven architecture and reusable CRUD patterns; integrated REST APIs with TanStack React Query handling loading states, error handling, caching, permissions, and edge cases.</li>
+      <li>Applied design patterns including Factory, Higher-Order Components, and Compound Components; contributed to architecture decisions and frontend engineering standards.</li>
+      <li>Established AI-assisted & agentic workflows to accelerate implementation, refactoring, debugging, and repetitive engineering tasks.</li>
+    </ul>
+    <div class="tech-line">React · TypeScript · Vue.js · MUI · React Query · Vuetify · REST APIs · Nuxt.js</div>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-role">Frontend Developer — Mind Torches <span>· Jordan / Remote</span></div>
+      <div class="job-date">Apr 2022 – Oct 2023</div>
+    </div>
+    <div class="job-sub">JetOrder — Large-scale store management platform</div>
+    <ul>
+      <li>Migrated large application from <strong>Nuxt 2 to Vue 3</strong>, modernizing legacy architecture.</li>
+      <li>Introduced <strong>TypeScript</strong> across the application, improving type safety, modularity, and developer productivity.</li>
+      <li>Refactored legacy frontend patterns and improved component modularity and maintainability.</li>
+      <li>Developed reusable components and complex business workflows for store management operations.</li>
+    </ul>
+    <div class="tech-line">Vue 3 · Nuxt.js · TypeScript</div>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-role">Frontend Developer — Freelance <span>· Remote</span></div>
+      <div class="job-date">Sep 2023 – Oct 2024</div>
+    </div>
+    <div class="job-sub">Web applications and digital products across e-commerce, fintech, and business services</div>
+    <ul>
+      <li>Built <strong>Voucher Buyer</strong> — multilingual platform for selling unused gift cards for cash; responsive interfaces, multilingual experiences, API-driven workflows, and payment flows for international users — <em>Next.js, TypeScript, Tailwind CSS</em>.</li>
+      <li>Built <strong>Paradise Road</strong> — responsive high-performance website for Saudi client with strong focus on performance and UX — <em>Next.js, Tailwind CSS</em>.</li>
+      <li>Built <strong>Iqraa Dashboard</strong> — currency management platform connected to mobile apps for monitoring currency exchange and digital transfers — <em>React, Tailwind CSS, REST APIs</em>.</li>
+      <li>Delivered Dental Clinic Management System and additional e-commerce/business applications — <em>React, Next.js, Vue.js, TypeScript</em>.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-role">Frontend Developer — ELKOOD <span>· Syria · On-site</span></div>
+      <div class="job-date">Jan 2021 – Aug 2023</div>
+    </div>
+    <ul>
+      <li>Delivered CRM systems, e-commerce platforms, and educational websites using Vue.js and Nuxt.js.</li>
+      <li>Built responsive and reusable interfaces with SSR and SEO optimization; developed modular component systems and integrated REST APIs.</li>
+      <li>Improved application structure and maintainability across multiple products; worked with responsive design and API-driven architecture.</li>
+    </ul>
+    <div class="tech-line">Vue.js · Nuxt.js · JavaScript · Tailwind CSS · REST APIs · SSR · SEO</div>
+  </div>
+</div>
+
+<!-- SELECTED PROJECTS -->
+<div class="section">
+  <div class="section-title">Selected Projects</div>
+
+  <div class="proj">
+    <div class="proj-title">ASAPI ERP <span>— Enterprise Resource Planning Platform</span> <span class="proj-tech">· React · TypeScript · MUI · React Query · REST APIs</span></div>
+    <ul>
+      <li>Flexible ERP platform connecting organizational operations within a unified system with dashboards, reports, and operational tools.</li>
+      <li>Developed complex enterprise interfaces across multiple business domains with reusable modular UI architecture; implemented dynamic tables, filtering, grouping, sorting, and data-driven workflows.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-title">Safeer Digital (EDC) <span>— Embassy Digital Platform</span> <span class="proj-tech">· Vue.js · TypeScript · Nuxt.js · Vuetify · REST APIs</span></div>
+    <ul>
+      <li>Specialized digital platform for embassies and diplomatic missions enabling digital services and administrative workflow automation.</li>
+      <li>Developed complex service interfaces with recursive components for hierarchical workflows; created reusable UI components and dynamic forms.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-title">Matrix ERP <span>— SaaS ERP Product</span> <span class="proj-tech">· React · TypeScript · MUI · React Query · REST APIs</span></div>
+    <ul>
+      <li>Modern scalable ERP managing operational, financial, and administrative processes across inventory, HR, finance, products, sales, purchasing, and accounting.</li>
+      <li>Built enterprise dashboards and business management interfaces with reusable components, scalable patterns, advanced filtering, grouping, sorting, and data visualization.</li>
+    </ul>
+  </div>
+
+  <div class="proj">
+    <div class="proj-title">JetOrder <span>— Store Management Platform</span> <span class="proj-tech">· Vue 3 · Nuxt.js · TypeScript</span></div>
+    <ul>
+      <li>Large-scale store management platform; migrated legacy architecture from Nuxt 2 to Vue 3, introduced TypeScript, and improved component modularity and frontend structure.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="section-title">Skills</div>
+  <div class="skills-grid">
+    <div class="skill-col">
+      <div class="skill-group">
+        <span class="skill-label">Languages & Frameworks</span>
+        <div class="skill-text">TypeScript, JavaScript (ES6+), React, Next.js, Vue.js, Nuxt.js</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">UI Systems</span>
+        <div class="skill-text">Tailwind CSS, MUI, Vuetify, Responsive Design, SSR, SSG, SEO, SPA Architecture, Component Systems</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Architecture & Practices</span>
+        <div class="skill-text">Modular Architecture, Component-Driven Development, Design Patterns, Reusable UI Systems, API-Driven & CRUD Architecture, Domain-Oriented Thinking, Scalable Frontend Architecture, Performance Optimization</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">AI-Assisted Engineering</span>
+        <div class="skill-text">AI-Assisted Development, Agentic Workflows, LLM Integrations, Prompt & Context Engineering, Automated Refactoring, AI-Assisted Debugging & Code Review</div>
+      </div>
+    </div>
+    <div class="skill-col">
+      <div class="skill-group">
+        <span class="skill-label">State & Data</span>
+        <div class="skill-text">TanStack Query, React Query, Zustand, Redux, Pinia, Server/Client State Management, API Caching, Optimistic Updates</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Backend & APIs</span>
+        <div class="skill-text">Node.js, NestJS, REST APIs, API Architecture, Authentication & Authorization, PostgreSQL, Prisma, TypeORM, Next.js Full-Stack</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Infrastructure & Tooling</span>
+        <div class="skill-text">Git, GitHub, Docker, Linux, CI/CD, Nginx, PM2, Vercel, Coolify, Cloud Deployment</div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Leadership & Contributions</span>
+        <div class="skill-text">Technical Leadership, Architecture & Decision Making, Product Thinking, Team Collaboration, Mentorship, Communication</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <div class="section-title">Education</div>
+  <p class="edu"><strong>B.Sc. in Information Engineering</strong> — University of Aleppo — 2024<br><span style="font-size:8.6pt; color:#333;">Aleppo, Syria · Graduated November 2024</span></p>
+</div>
+
+<!-- LANGUAGES -->
+<div class="section">
+  <div class="section-title">Languages</div>
+  <p style="font-size:8.8pt;">Arabic — Native &nbsp;|&nbsp; English — Professional</p>
+</div>
+
+<div class="footer">
+  ATS-Optimized · Single column + ATS-safe 2-col skills grid · Selectable text · Export: Open HTML → Ctrl+P → Save as PDF · File: Hiba_Baeij_Senior_Engineer_CV.pdf
+</div>
+
+</body>
+</html>

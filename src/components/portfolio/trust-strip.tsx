@@ -13,7 +13,7 @@ const brands: Brand[] = [
   { name: "ASAPI ERP", logo: "/logo/brands/asapi.svg", width: 510, height: 85 },
   { name: "Safeer Digital", logo: "/logo/brands/safeer-digital.svg", width: 300, height: 72 },
   { name: "e-Dukan", logo: "/logo/brands/e-dukan-mark.svg", width: 152, height: 60 },
-  { name: "SmartDocs AI", logo: "/logo/brands/smartdocs-ai-mark.svg", width: 64, height: 64 },
+  { name: "SmartDocs AI", logo: "/logo/brands/smartdocs-ai-on-dark.svg", width: 272, height: 64 },
   { name: "Mind Torches" },
   { name: "JetOrder", logo: "/logo/brands/jetorder.png", width: 95, height: 40 },
   { name: "ELKOOD", logo: "/logo/brands/elkood.png", width: 423, height: 168 },
@@ -23,7 +23,7 @@ const brands: Brand[] = [
 
 export const TrustStrip = () => {
   return (
-    <section className="border-y border-line py-8" aria-label="Companies and products">
+    <section className="border-y border-white/[0.04] py-8" aria-label="Companies and products">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-5 md:flex-row md:gap-10 md:px-6">
         <p className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-subtle md:max-w-[200px]">
           Companies and products I've worked on
