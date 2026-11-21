@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import { siteConfig } from "@/constants/portfolio";
 import { FadeIn, SplitWords, TypedLines } from "./motion";
+import SkyHero from "./sky-hero";
 
 const S = ({ c, children }: { c: string; children: React.ReactNode }) => <span className={c}>{children}</span>;
 const str = "text-[#C3E88D]";
@@ -36,13 +37,8 @@ const codeLines = [
 
 const Hero = () => {
   return (
-    <section id="home" className="relative overflow-hidden">
-      <div className="grid-bg pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        className="animate-aurora pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] rounded-full bg-brand/10 blur-[120px]"
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-20 pt-24 md:px-6 md:pt-28 lg:grid-cols-[1.15fr_1fr] lg:pb-28 [&>*]:min-w-0">
+    <SkyHero id="home">
+      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pb-24 pt-24 md:px-6 md:pt-28 lg:grid-cols-[1.15fr_1fr] lg:pb-28 [&>*]:min-w-0">
         <div className="flex flex-col gap-6">
           <FadeIn>
             <span className="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-mint/[0.08] px-3 py-1.5 text-[13px] text-[#8FF0D6]">
@@ -109,7 +105,7 @@ const Hero = () => {
           </p>
         </FadeIn>
       </div>
-    </section>
+    </SkyHero>
   );
 };
 
