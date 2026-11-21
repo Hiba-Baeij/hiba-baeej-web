@@ -5,8 +5,7 @@ import Reveal from "./reveal";
 export const Contact = () => {
   return (
     <section id="contact" className="mx-auto w-full max-w-6xl px-5 py-28 md:px-6">
-      <Reveal className="relative overflow-hidden rounded-[32px] border border-brand/25 bg-[#0E1220] px-6 py-14 text-center md:px-12 md:py-20">
-        <div className="grid-bg pointer-events-none absolute inset-0 opacity-60" aria-hidden="true" />
+      <Reveal className="relative overflow-hidden rounded-[32px] border border-brand/25 bg-[#0E1220]/60 px-6 backdrop-blur-md py-14 text-center md:px-12 md:py-20">
         <div className="animate-glow-pulse pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[640px] rounded-full bg-brand/20 blur-[120px]" aria-hidden="true" />
         <div className="relative mx-auto flex max-w-2xl flex-col items-center gap-5">
           <span className="inline-flex items-center gap-2 rounded-full border border-mint/30 bg-mint/[0.08] px-3 py-1.5 text-[13px] text-[#8FF0D6]">

@@ -6,7 +6,7 @@ import Providers from "@/components/global/providers";
 export const metadata = generateMetadata();
 
 export const viewport = {
-    themeColor: "#07080B",
+    themeColor: "#060813",
 };
 
 export default function RootLayout({

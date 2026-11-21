@@ -8,7 +8,7 @@ const highlightIcons = [FileSearch, Bot, Workflow];
 export const AiSection = () => {
   return (
     <section id="ai" className="mx-auto w-full max-w-6xl px-5 pt-28 md:px-6">
-      <div className="relative overflow-hidden rounded-[28px] border border-brand/25 bg-[#0B0E17] p-6 md:p-12">
+      <div className="relative overflow-hidden rounded-[28px] border border-brand/25 bg-[#0B0E17]/60 p-6 backdrop-blur-md md:p-12">
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-brand/15 blur-[100px]" aria-hidden="true" />
         <SectionHeading
           eyebrow="AI"

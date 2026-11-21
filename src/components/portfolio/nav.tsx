@@ -8,6 +8,7 @@ import { Download, Menu, X } from "lucide-react";
 import { siteConfig } from "@/constants/portfolio";
 import { cn } from "@/utils";
 import { ScrollProgress } from "./motion";
+import MotionToggle from "./motion-toggle";
 
 const links = [
   { label: "Work", href: "/#featured" },
@@ -65,6 +66,7 @@ export const SiteHeader = () => {
         </ul>
 
         <div className="hidden items-center gap-2.5 md:flex">
+          <MotionToggle className="min-h-9 px-3.5" />
           <a
             href={siteConfig.cvUrl}
             download
@@ -80,15 +82,18 @@ export const SiteHeader = () => {
           </Link>
         </div>
 
-        <button
-          type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/12 text-white md:hidden"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <MotionToggle showLabel={false} className="h-11 w-11" />
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/12 text-white"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

@@ -157,7 +157,7 @@ const ProjectPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
       </div>
 
       <div className="mt-20 grid gap-4 md:grid-cols-2">
-        <Link href="/#contact" className="surface group flex flex-col gap-2 border-brand/30 bg-[#0E1220] p-7">
+        <Link href="/#contact" className="surface group flex flex-col gap-2 border-brand/30 bg-[#0E1220]/60 p-7 backdrop-blur-md">
           <span className="font-mono text-xs uppercase tracking-[0.14em] text-brand">Have a similar problem?</span>
           <span className="flex items-center gap-2 font-heading text-2xl font-bold text-white">
             Let&apos;s talk <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
