@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import { projects, getProjectBySlug } from "@/constants/portfolio";
+import { projects, getProjectBySlug, siteConfig } from "@/constants/portfolio";
+import { getBaseUrl } from "@/utils/getBaseUrl";
 import { ProjectShot } from "@/components/portfolio/project-shot";
 import { BrandMark } from "@/components/portfolio/brand-mark";
 import Gallery from "@/components/portfolio/gallery";
@@ -53,8 +54,37 @@ const ProjectPage = async ({ params }: { params: Promise<{ slug: string }> }) =>
   const next = projects[(index + 1) % projects.length];
   const tour = (project.gallery ?? []).filter((g) => g.src !== project.cover?.src);
 
+  const baseUrl = getBaseUrl();
+  const url = `${baseUrl}/work/${project.slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${url}#article`,
+        headline: project.title,
+        description: project.description,
+        url,
+        ...(project.cover && { image: `${baseUrl}${project.cover.src}` }),
+        author: { "@type": "Person", name: siteConfig.name, url: baseUrl },
+        about: project.category,
+        keywords: project.tech.join(", "),
+        inLanguage: "en",
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+          { "@type": "ListItem", position: 2, name: "Work", item: `${baseUrl}/work` },
+          { "@type": "ListItem", position: 3, name: project.title, item: url },
+        ],
+      },
+    ],
+  };
+
   return (
     <article className="mx-auto w-full max-w-6xl px-5 pb-28 pt-28 md:px-6 md:pt-36">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Link href="/work" className="inline-flex items-center gap-2 text-sm text-fg-muted hover:text-white">
         <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to work
       </Link>

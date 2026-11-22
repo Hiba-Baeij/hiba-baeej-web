@@ -32,7 +32,7 @@ export const ProjectShot = ({
           <span className="h-2 w-2 rounded-full bg-[#FF5F57]" />
           <span className="h-2 w-2 rounded-full bg-[#FEBC2E]" />
           <span className="h-2 w-2 rounded-full bg-[#28C840]" />
-          <span className="mx-auto truncate rounded bg-white px-3 py-0.5 font-mono text-[9px] text-black/40">{title}</span>
+          <span className="mx-auto truncate rounded bg-white px-3 py-0.5 font-mono text-[9px] text-black/60">{title}</span>
         </div>
         <div className="relative flex-1">
           <Image

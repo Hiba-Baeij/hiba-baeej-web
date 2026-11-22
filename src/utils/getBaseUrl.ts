@@ -21,7 +21,9 @@ export function getBaseUrl(): string {
     }
   }
 
-  const vercelUrl = process.env.VERCEL_URL?.trim();
+  // Prefer the stable production domain over VERCEL_URL, which is unique per deployment
+  // and would put preview URLs in canonical links and the sitemap.
+  const vercelUrl = (process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL)?.trim();
   if (vercelUrl) {
     try {
       const candidate = `https://${vercelUrl}`;
